@@ -42,10 +42,10 @@ app = new Vue
       # massage the grouped sata to determine the current reduction
       stats = _.map @groupedOrganizations, (org) ->
         data =
-          organization: org[0].organizationname
+          name: org[0].organizationname
           target2015: 0.10
           target2020: 0.20
-          reduction: 1 - (org[org.length - 1].sum_co2e / org[0].sum_co2e)
+          reduction: parseFloat(1 - (org[org.length - 1].sum_co2e / org[0].sum_co2e))
           years: org
         return data
 

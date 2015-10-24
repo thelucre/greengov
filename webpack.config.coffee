@@ -5,7 +5,7 @@ ExtractTextPlugin = require 'extract-text-webpack-plugin'
 
 module.exports =
 
-  entry: __dirname + '/src/start.coffee'
+  entry: __dirname + '/src/app.coffee'
 
   output:
     path: __dirname + '/build'

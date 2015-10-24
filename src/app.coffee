@@ -8,19 +8,21 @@ Vue.config.debug = true
 endpoint = 'https://greengov.data.ca.gov/resource/umpc-nnuk.json?$limit=50000'
 
 app = new Vue
-  el: '#app'
+	el: '#app'
 
-  data:
-    dataset: []
+	data:
+		dataset: []
 
-  ready: () ->
-    @$http.get endpoint, (data, status, request) =>
-      @$set('dataset', data)
-    return
+	ready: () ->
+		@$http.get endpoint, (data, status, request) =>
+			@$set('dataset', data)
+		return
 
-  # child component will inherit these methods
-  computed:
-    null
+	# child component will inherit these methods
+	computed:
+		null
 
-  components:
-    'test': require './test/component.coffee'
+	components:
+		leaderboard: require './leaderboard/component.coffee'
+		leaders: require './leaders/component.coffee'
+		marquee: require './marquee/component.coffee'

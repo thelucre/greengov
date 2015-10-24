@@ -14,23 +14,6 @@ module.exports =
 		'type' # The type of leaders to be displayed, either 'top' or 'bottom'
 	]
 
-	data: -> {
-		organizations: [
-			{
-				name: 'Farts',
-				percent: .2222222,
-			}
-			{
-				name: 'Less farty',
-				percent: .150000,
-			}
-			{
-				name: 'The most farty ever',
-				percent: .111111,
-			}
-		]
-	}
-
 	computed:
 
 		# The title of the component

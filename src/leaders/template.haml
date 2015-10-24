@@ -1,6 +1,7 @@
 .leaders(class='type-{{type}}')
-  %h1 {{ title }}
-  %ol.organizations
-    %li(v-repeat='org in organizationsWithStats')
-      %span.name {{ org.name }}
-      %span.bar(v-style='width: org.reduction | percent') {{ Math.round(org.reduction*1000)/1000 | percent }}
+	%h1 {{ title }}
+
+	%ol.organizations
+		%li(v-repeat='org in organizationsWithStats')
+			%span.name {{ org.name }}
+			%span.bar(v-style='width: org.reduction | percent') {{ org.reduction | percent 1 }}

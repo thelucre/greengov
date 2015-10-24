@@ -6,6 +6,8 @@ Test =
   template: require './template.html'
   inherit: true
 
+  props: ['org']
+
   data: () ->
     data = {}
     return data

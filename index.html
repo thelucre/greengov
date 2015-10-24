@@ -7,7 +7,9 @@
   </head>
   <body>
     <div id="app">
-      <test></test>
+      <template v-repeat="org in organizationsWithStats">
+        <test org="{{org}}"></test>
+      </template>
     </div>
 
     <script src="build/build.js"></script>

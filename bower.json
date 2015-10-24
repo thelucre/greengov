@@ -1,0 +1,19 @@
+{
+  "name": "Lucre Base for Sage Wordpress Template",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "modernizr": "2.8.2",
+    "jquery": "1.11.2",
+    "requirejs": "~2",
+    "lodash": "~2",
+    "backbone": "~1",
+    "requirejs-text": "~2",
+    "bkwld": "bkwld/js-library",
+    "fastclick": "~1",
+    "velocity": "*",
+    "vue": "*",
+    "vue-router": "*",
+    "vue-resource": "*"
+  }
+}

@@ -1,6 +1,11 @@
 # Green Gov Challenge
 ## Team BKWLD
 
+### Resources
+* Contest Homepage: [http://www.dgs.ca.gov/dgs/Home/GreenGovChallenge.aspx](http://www.dgs.ca.gov/dgs/Home/GreenGovChallenge.aspx)
+* Data repository: [https://greengov.data.ca.gov/browse](https://greengov.data.ca.gov/browse)
+* Full Contest Details: [https://github.com/CAGovOps/CAGreenGov](https://github.com/CAGovOps/CAGreenGov)
+
 ### Install
 Run:
 * `bower install`

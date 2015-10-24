@@ -2,6 +2,6 @@
 	%h1 {{ title }}
 
 	%ol.organizations
-		%li(v-repeat='org in organizationsWithStats')
+		%li(v-repeat='org in leaders')
 			%span.name {{ org.name }}
 			%span.bar(v-style='width: org.reduction | percent') {{ org.reduction | percent 1 }}

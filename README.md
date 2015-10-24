@@ -5,6 +5,7 @@
 * Contest Homepage: [http://www.dgs.ca.gov/dgs/Home/GreenGovChallenge.aspx](http://www.dgs.ca.gov/dgs/Home/GreenGovChallenge.aspx)
 * Data repository: [https://greengov.data.ca.gov/browse](https://greengov.data.ca.gov/browse)
 * Full Contest Details: [https://github.com/CAGovOps/CAGreenGov](https://github.com/CAGovOps/CAGreenGov)
+* Dataset Presentation: [https://docs.google.com/presentation/d/1sa7QU-98to-1KIQwhXAjVnx-ujrwtZXuwYNEo2H2bWI/edit?usp=sharing](https://docs.google.com/presentation/d/1sa7QU-98to-1KIQwhXAjVnx-ujrwtZXuwYNEo2H2bWI/edit?usp=sharing)
 
 ### Install
 Run:

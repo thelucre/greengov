@@ -7,9 +7,14 @@
   </head>
   <body>
     <div id="app">
-      <template v-repeat="org in organizationsWithStats">
-        <test org="{{org}}"></test>
-      </template>
+
+      <marquee></marquee>
+
+      <leaders type='top'></leaders>
+      <leaders type='bottom'></leaders>
+
+      <leaderboard></leaderboard>
+
     </div>
 
     <script src="build/build.js"></script>

@@ -4,6 +4,7 @@ require 'style.styl'
 Vue = require 'vue'
 Vue.use require 'vue-resource'
 Vue.config.debug = true
+require './assets.coffee'
 
 app = new Vue
   el: '#app'
@@ -16,6 +17,9 @@ app = new Vue
 
   components:
     'test': require './test/component.coffee'
+    leaderboard: require './leaderboard/component.coffee'
+    leaders: require './leaders/component.coffee'
+    marquee: require './marquee/component.coffee'
 
   ready: () ->
     @getAggregateData();

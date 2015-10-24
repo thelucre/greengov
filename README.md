@@ -6,6 +6,7 @@
 * Data repository: [https://greengov.data.ca.gov/browse](https://greengov.data.ca.gov/browse)
 * Full Contest Details: [https://github.com/CAGovOps/CAGreenGov](https://github.com/CAGovOps/CAGreenGov)
 * Dataset Presentation: [https://docs.google.com/presentation/d/1sa7QU-98to-1KIQwhXAjVnx-ujrwtZXuwYNEo2H2bWI/edit?usp=sharing](https://docs.google.com/presentation/d/1sa7QU-98to-1KIQwhXAjVnx-ujrwtZXuwYNEo2H2bWI/edit?usp=sharing)
+* Socrata Query Docs [http://dev.socrata.com/docs/queries.html](http://dev.socrata.com/docs/queries.html)
 
 ### Install
 Run:

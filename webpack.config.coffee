@@ -46,7 +46,7 @@ module.exports =
     alias:
       'jquery': bower_dir + '/jquery/dist/jquery.js'
       'backbone': bower_dir + '/backbone/backbone-min.js'
-      'lodash': bower_dir + '/lodash/lodash.js'
+      'lodash': bower_dir + '/lodash/dist/lodash.min.js'
       'underscore': bower_dir + '/lodash/lodash.js'
       'text': bower_dir + '/requirejs-text/text.js'
       'vue': bower_dir + '/vue/dist/vue.js'

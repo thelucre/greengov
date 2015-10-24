@@ -5,7 +5,7 @@
 Run:
 * `bower install`
 * `npm install`
-* `webpack watch`
+* `webpack -w`
 
 ### Branches
 The `master` branch ignores webpack builds. Change to the `gh-pages` branch and commit the webpack build js and css.

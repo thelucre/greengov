@@ -215,6 +215,20 @@ th {
 .cols-2 > *:first-child + * {
   padding-left: 40px;
 }
+footer {
+  background: #64d2e9;
+  padding: 40px;
+  text-align: center;
+}
+footer a {
+  border-bottom: #f3f4f4 dashed 1px;
+  -webkit-transition: color 350ms 0ms ease-in-out, border-color 350ms 0ms ease-in-out;
+          transition: color 350ms 0ms ease-in-out, border-color 350ms 0ms ease-in-out;
+}
+footer a:hover {
+  color: #556270;
+  border-color: #556270;
+}
 a {
   text-decoration: none;
   color: inherit;
@@ -390,6 +404,7 @@ p {
   line-height: 50px;
   padding: 0 20px;
   cursor: pointer;
+  padding-bottom: 1px;
   -webkit-transition: background-color 350ms 0ms ease-in-out;
           transition: background-color 350ms 0ms ease-in-out;
 }
@@ -440,21 +455,13 @@ p {
 }
 .org-detail .item-content {
   background: #f3f4f4;
-  height: 0;
-  overflow: hidden;
-  padding: 0 20px;
+  display: none;
+  margin-bottom: 20px;
 }
 .org-detail .item-content:after {
   content: "";
   display: table;
   clear: both;
-}
-.org-detail.open {
-  padding-bottom: 20px;
-}
-.org-detail.open .item-content {
-  height: auto;
-  padding: 20px;
 }
 /*# sourceMappingURL=src/org-detail/style.css.map */.energy-types {
   width: 50%;
@@ -474,13 +481,14 @@ p {
   width: 100% !important;
   height: auto !important;
 }
-/*# sourceMappingURL=src/energy-chart/style.css.map */.energy-types {
+/*# sourceMappingURL=src/energy-chart/style.css.map */.reduction-chart {
   width: 50%;
   height: 400px;
   text-align: center;
   float: right;
+  padding: 0 20px;
 }
-.energy-types h4 {
+.reduction-chart h4 {
   background: #556270;
   padding: 0px 20px;
   font-size: 18px;
@@ -488,9 +496,34 @@ p {
   text-transform: uppercase;
   display: inline-block;
 }
-.energy-types canvas {
+.reduction-chart canvas {
   width: 100% !important;
   height: auto !important;
 }
-/*# sourceMappingURL=src/reduction-chart/style.css.map */
+.reduction-chart legend {
+  width: 100%;
+}
+.reduction-chart legend ul {
+  line-height: 14px;
+  text-align: center;
+  width: 100%;
+  padding-left: 0;
+}
+.reduction-chart legend ul li {
+  font-size: 12px;
+  color: #556270;
+  display: inline-block;
+  padding-right: 20px !important;
+  border: none !important;
+}
+.reduction-chart legend ul li span {
+  width: 15px;
+  height: 15px;
+  vertical-align: bottom;
+  margin-right: 6px;
+}
+/*# sourceMappingURL=src/reduction-chart/style.css.map */.compare {
+  text-align: center;
+}
+/*# sourceMappingURL=src/compare/style.css.map */
 /*# sourceMappingURL=style.css.map*/

@@ -64,9 +64,10 @@
 	    state: []
 	  },
 	  components: {
-	    leaderboard: __webpack_require__(19),
+	    intro: __webpack_require__(10),
+	    marquee: __webpack_require__(13),
 	    leaders: __webpack_require__(16),
-	    marquee: __webpack_require__(13)
+	    leaderboard: __webpack_require__(19)
 	  },
 	  ready: function() {
 	    this.getAggregateOrgData();
@@ -34076,9 +34077,34 @@
 
 
 /***/ },
-/* 10 */,
-/* 11 */,
-/* 12 */,
+/* 10 */
+/***/ function(module, exports, __webpack_require__) {
+
+	
+	/*
+	The marquee
+	 */
+	__webpack_require__(11);
+	
+	module.exports = {
+	  template: __webpack_require__(12),
+	  inherit: true
+	};
+
+
+/***/ },
+/* 11 */
+/***/ function(module, exports) {
+
+	// removed by extract-text-webpack-plugin
+
+/***/ },
+/* 12 */
+/***/ function(module, exports) {
+
+	module.exports = "<div class='block blue intro'>\n  <div class='cols-2'>\n    <div class='left'>\n      <h1 class='header'>\n        <span>The goal</span>\n      </h1>\n      <p>Governor Brown <a href=\"https://www.gov.ca.gov/news.php?id=17508\" target=\"_blank\">has required</a> that all agencies reduce greenhouse gas emissions by at least 10% of their 2010 levels by 2015.  And by 2020, these reductions should be at 20%.</p>\n      <p>The state is currently meeting and these exceeding these targets as a whole.</p>\n    </div>\n    <div class='right'>\n      <div class='chart'></div>\n    </div>\n  </div>\n</div>";
+
+/***/ },
 /* 13 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -34098,9 +34124,9 @@
 	      var reduction;
 	      reduction = 1 - this.state[this.state.length - 1].sum_co2e / this.state[0].sum_co2e;
 	      if (reduction < 0.1) {
-	        return '/img/marquee/failing.png';
+	        return 'img/marquee/failing.png';
 	      } else {
-	        return '/img/marquee/succeeding.png';
+	        return 'img/marquee/succeeding.png';
 	      }
 	    }
 	  }
@@ -34159,7 +34185,7 @@
 /* 18 */
 /***/ function(module, exports) {
 
-	module.exports = "<div class='max-width'>\n  <div class='leaders'>\n    <h1 class='header'>\n      <span>Of all agencies in California&hellip;</span>\n    </h1>\n    <div class='cols'>\n      <div class='best'>\n        <h2>\n          <span>The best</span>\n        </h2>\n        <div class='leader' v-repeat='org in best'>\n          <div class='name'>\n            <span class='rank'>{{org.rank}}.</span>\n            {{ org.name }}\n          </div>\n          <div class='perc' v-class='negative: org.reduction < 0'>\n            <div class='bar' v-style='width: Math.min(1, Math.abs(org.reduction)) | percent'>{{ org.reduction | percent 1 }}</div>\n          </div>\n        </div>\n      </div>\n      <div class='worst'>\n        <h2>\n          <span>The worst</span>\n        </h2>\n        <div class='leader' v-repeat='org in worst'>\n          <div class='name'>\n            <span class='rank'>{{org.rank}}.</span>\n            {{ org.name }}\n          </div>\n          <div class='perc' v-class='negative: org.reduction < 0'>\n            <div class='bar' v-style='width: Math.min(1, Math.abs(org.reduction)) | percent'>{{ org.reduction | percent 1 }}</div>\n          </div>\n        </div>\n      </div>\n    </div>\n    <p class='about'>Bigger numbers are better; they represent the percentage of CO<sup>2</sup> emissions the agency has reduced (or increased, in the case of negatives) since 2010.</p>\n  </div>\n</div>";
+	module.exports = "<div class='block'>\n  <div class='leaders'>\n    <h1 class='header'>\n      <span>Of all agencies in California&hellip;</span>\n    </h1>\n    <div class='cols-2'>\n      <div class='best'>\n        <h2>\n          <span>The best</span>\n        </h2>\n        <div class='leader' v-repeat='org in best'>\n          <div class='name'>\n            <span class='rank'>{{org.rank}}.</span>\n            {{ org.name }}\n          </div>\n          <div class='perc' v-class='negative: org.reduction < 0'>\n            <div class='bar' v-style='width: Math.min(1, Math.abs(org.reduction)) | percent'>{{ org.reduction | percent 1 }}</div>\n          </div>\n        </div>\n      </div>\n      <div class='worst'>\n        <h2>\n          <span>The worst</span>\n        </h2>\n        <div class='leader' v-repeat='org in worst'>\n          <div class='name'>\n            <span class='rank'>{{org.rank}}.</span>\n            {{ org.name }}\n          </div>\n          <div class='perc' v-class='negative: org.reduction < 0'>\n            <div class='bar' v-style='width: Math.min(1, Math.abs(org.reduction)) | percent'>{{ org.reduction | percent 1 }}</div>\n          </div>\n        </div>\n      </div>\n    </div>\n    <p class='about'>Bigger numbers are better; they represent the percentage of CO<sup>2</sup> emissions the agency has reduced (or increased, in the case of negatives) since 2010.</p>\n  </div>\n</div>";
 
 /***/ },
 /* 19 */
@@ -34193,54 +34219,40 @@
 /* 21 */
 /***/ function(module, exports) {
 
-	module.exports = "<div class='leaderboard'>\n  <h1 class='dark header'>\n    <span>How everyone stacks up</span>\n  </h1>\n  <ul class='organizations'>\n    <li class='list-header'>\n      <span class='rank'>Rank</span>\n      <span class='name'>Agency Name</span>\n      <span class='pass-fail'>Pass/Fail</span>\n      <span class='reduction'>Reduction</span>\n    </li>\n    <li v-repeat='org in organizationsWithStats'>\n      <org-detail org='{{ org }}'></org-detail>\n    </li>\n  </ul>\n</div>";
+	module.exports = "<div class='block blue leaderboard'>\n  <h1 class='header'>\n    <span>How everyone stacks up</span>\n  </h1>\n  <ul class='organizations'>\n    <li class='list-header'>\n      <span class='rank'>Rank</span>\n      <span class='name'>Agency Name</span>\n      <span class='pass-fail'>Pass/Fail</span>\n      <span class='reduction'>Reduction</span>\n    </li>\n    <li v-repeat='org in organizationsWithStats'>\n      <org-detail org='{{ org }}'></org-detail>\n    </li>\n  </ul>\n</div>";
 
 /***/ },
 /* 22 */
 /***/ function(module, exports, __webpack_require__) {
 
-	/* WEBPACK VAR INJECTION */(function($, _) {
+	/* WEBPACK VAR INJECTION */(function(_) {
 	/*
 	The marquee
 	 */
-	var Chart, Marquee;
+	var Marquee;
 	
 	__webpack_require__(23);
-	
-	Chart = __webpack_require__(27);
 	
 	Marquee = {
 	  template: __webpack_require__(24),
 	  inherit: true,
 	  props: ['org'],
+	  components: {
+	    'energy-chart': __webpack_require__(25),
+	    'reduction-chart': __webpack_require__(31)
+	  },
 	  data: function() {
 	    return {
 	      open: false,
-	      orgdata: []
+	      piedata: []
 	    };
 	  },
 	  attached: function() {},
 	  methods: {
 	    toggle: function() {
 	      this.open = !this.open;
-	      if (this.orgdata.length === 0) {
-	        this.getEneryData();
-	      }
-	    },
-	    getEneryData: function() {
-	      var params;
-	      params = {
-	        $select: 'organizationname,sourcename,SUM(co2e)',
-	        $group: 'organizationname,sourcename',
-	        $where: 'organizationname=\'' + (this.org.name.replace('\'', '\'\'') + '\'')
-	      };
-	      this.$http.get(this.endpoint + $.param(params), (function(_this) {
-	        return function(data, status, request) {
-	          _this.$set('orgdata', data);
-	          console.log(_this.orgdata);
-	          return _this.buildCharts();
-	        };
-	      })(this));
+	      this.$.piechart.init();
+	      this.$.reductionchart.init();
 	    },
 	    buildCharts: function() {
 	      var ctx;
@@ -34251,14 +34263,15 @@
 	  },
 	  computed: {
 	    isPassing: function() {
-	      return this.org.reduction >= 0.1;
+	      return this.org.reduction >= 0.08;
 	    },
 	    pieData: function() {
 	      var temp;
-	      temp = _.map(this.orgdata, function(type, i) {
+	      temp = _.map(this.piedata, function(type, i) {
+	        console.log(i);
 	        return {
-	          color: '#000',
-	          value: type.sum_co2e,
+	          color: chartColors.colors[i % chartColors.colors.length],
+	          value: parseInt(type.sum_co2e).toFixed(0),
 	          hightlight: '#444',
 	          label: type.sourcename
 	        };
@@ -34277,7 +34290,7 @@
 	
 	module.exports = Marquee;
 	
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3), __webpack_require__(1)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ },
 /* 23 */
@@ -34289,11 +34302,93 @@
 /* 24 */
 /***/ function(module, exports) {
 
-	module.exports = "<div class='org-detail' v-class=' open: open'>\n  <div class='item-header' v-on='click: toggle()'>\n    <span class='rank'>{{ (\"0\" + org.rank).slice(-2) }}</span>\n    <span class='name'>\n      <div class='vert-center'>{{ org.name }}</div>\n    </span>\n    <span class='pass-fail' v-class=' pass: isPassing'>{{ grade }}</span>\n    <span class='reduction' v-class=' pass: isPassing'>{{ (org.reduction*100).toFixed(1)+ '%' }}</span>\n  </div>\n  <div class='item-content'>\n    <h1>charts n shit</h1>\n    <canvas v-el='pie'></canvas>\n  </div>\n</div>";
+	module.exports = "<div class='org-detail' v-class=' open: open'>\n  <div class='item-header' v-on='click: toggle()'>\n    <span class='rank'>{{ (\"0\" + org.rank).slice(-2) }}</span>\n    <span class='name'>\n      <div class='vert-center'>{{ org.name }}</div>\n    </span>\n    <span class='pass-fail' v-class=' pass: isPassing'>{{ grade }}</span>\n    <span class='reduction' v-class=' pass: isPassing'>{{ (org.reduction*100).toFixed(1)+ '%' }}</span>\n  </div>\n  <div class='item-content'>\n    <energy-chart v-ref='piechart'></energy-chart>\n    <reduction-chart v-ref='reductionchart'></reduction-chart>\n  </div>\n</div>";
 
 /***/ },
-/* 25 */,
-/* 26 */,
+/* 25 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function($, _) {
+	/*
+	The marquee
+	 */
+	var Chart, Marquee, chartColors;
+	
+	__webpack_require__(26);
+	
+	Chart = __webpack_require__(27);
+	
+	chartColors = __webpack_require__(29);
+	
+	Chart.defaults.global.responsive = true;
+	
+	Chart.defaults.global.animationEasing = "easeInOutQuart";
+	
+	Marquee = {
+	  template: __webpack_require__(30),
+	  inherit: true,
+	  data: function() {
+	    return {
+	      chartdata: []
+	    };
+	  },
+	  attached: function() {},
+	  methods: {
+	    init: function() {
+	      if (this.chartdata.length <= 0) {
+	        this.getChartData();
+	      }
+	    },
+	    getChartData: function() {
+	      var params;
+	      params = {
+	        $select: 'organizationname,sourcename,SUM(co2e)',
+	        $group: 'organizationname,sourcename',
+	        $where: 'organizationname=\'' + (this.org.name.replace('\'', '\'\'') + '\'')
+	      };
+	      this.$http.get(this.endpoint + $.param(params), (function(_this) {
+	        return function(data, status, request) {
+	          _this.$set('chartdata', data);
+	          return _this.buildCharts();
+	        };
+	      })(this));
+	    },
+	    buildCharts: function() {
+	      var ctx;
+	      ctx = this.$$.pie.getContext('2d');
+	      this.pieChart = new Chart(ctx).Pie(this.pieData, {
+	        animationEasing: "easeInOutQuart",
+	        maintainAspectRatio: true
+	      });
+	    }
+	  },
+	  computed: {
+	    pieData: function() {
+	      var temp;
+	      temp = _.map(this.chartdata, function(type, i) {
+	        return {
+	          color: chartColors.colors[i % chartColors.colors.length],
+	          value: parseInt(type.sum_co2e).toFixed(0),
+	          hightlight: '#444',
+	          label: type.sourcename
+	        };
+	      });
+	      return temp;
+	    }
+	  }
+	};
+	
+	module.exports = Marquee;
+	
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3), __webpack_require__(1)))
+
+/***/ },
+/* 26 */
+/***/ function(module, exports) {
+
+	// removed by extract-text-webpack-plugin
+
+/***/ },
 /* 27 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -34316,6 +34411,125 @@
 	/* WEBPACK VAR INJECTION */(function(__webpack_amd_options__) {module.exports = __webpack_amd_options__;
 	
 	/* WEBPACK VAR INJECTION */}.call(exports, {}))
+
+/***/ },
+/* 29 */
+/***/ function(module, exports) {
+
+	module.exports = {
+	  colors: ['#8781bd', '#c6f659', '#c64c56', '#3cb878', '#fff200', '#ee145b', '#64d2e9', '#fc6900', '#ff00ff', '#46cdc4'],
+	  highlights: ['#8781bd', '#c6f659', '#c64c56', '#3cb878', '#fff200', '#ee145b', '#64d2e9', '#fc6900', '#ff00ff', '#46cdc4']
+	};
+
+
+/***/ },
+/* 30 */
+/***/ function(module, exports) {
+
+	module.exports = "<div class='energy-types'>\n  <h4>Type of Energy Consumed</h4>\n  <canvas class='piechart' v-el='pie'></canvas>\n  <div class='legend' v-el='legend'></div>\n</div>";
+
+/***/ },
+/* 31 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(_) {
+	/*
+	The marquee
+	 */
+	var Chart, Marquee, chartColors;
+	
+	__webpack_require__(32);
+	
+	Chart = __webpack_require__(27);
+	
+	chartColors = __webpack_require__(33);
+	
+	Chart.defaults.global.responsive = true;
+	
+	Chart.defaults.global.animationEasing = "easeInOutQuart";
+	
+	Marquee = {
+	  template: __webpack_require__(34),
+	  inherit: true,
+	  data: function() {
+	    return {
+	      chartdata: []
+	    };
+	  },
+	  attached: function() {},
+	  methods: {
+	    init: function() {
+	      if (this.chartdata.length <= 0) {
+	        this.buildChart();
+	      }
+	    },
+	    buildChart: function() {
+	      var ctx;
+	      ctx = this.$$.bar.getContext('2d');
+	      this.pieChart = new Chart(ctx).Bar(this.barData, {
+	        animationEasing: "easeInOutQuart",
+	        maintainAspectRatio: true
+	      });
+	    }
+	  },
+	  computed: {
+	    barData: function() {
+	      var chartvalues;
+	      chartvalues = {
+	        labels: _.map(_.range(11), function(i) {
+	          return 2010 + i;
+	        }),
+	        datasets: [
+	          {
+	            label: 'Target',
+	            data: _.map(_.range(11), function(i) {
+	              return 1 - i * 0.02;
+	            }),
+	            fillColor: '#aaa',
+	            strokeColor: '#aaa'
+	          }, {
+	            label: 'Actual',
+	            data: _.map(this.org.years, (function(_this) {
+	              return function(year) {
+	                return year.sum_co2e / _this.org.years[0].sum_co2e;
+	              };
+	            })(this)),
+	            fillColor: '#556270',
+	            strokeColor: '#556270'
+	          }
+	        ]
+	      };
+	      console.log(chartvalues);
+	      return chartvalues;
+	    }
+	  }
+	};
+	
+	module.exports = Marquee;
+	
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
+
+/***/ },
+/* 32 */
+/***/ function(module, exports) {
+
+	// removed by extract-text-webpack-plugin
+
+/***/ },
+/* 33 */
+/***/ function(module, exports) {
+
+	module.exports = {
+	  colors: ['#8781bd', '#c6f659', '#c64c56', '#3cb878', '#fff200', '#ee145b', '#64d2e9', '#fc6900', '#ff00ff', '#46cdc4'],
+	  highlights: ['#8781bd', '#c6f659', '#c64c56', '#3cb878', '#fff200', '#ee145b', '#64d2e9', '#fc6900', '#ff00ff', '#46cdc4']
+	};
+
+
+/***/ },
+/* 34 */
+/***/ function(module, exports) {
+
+	module.exports = "<div class='energy-types'>\n  <h4>Target v. Actual Emissions</h4>\n  <canvas class='barchart' v-el='bar'></canvas>\n</div>";
 
 /***/ }
 /******/ ]);

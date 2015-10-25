@@ -15,9 +15,10 @@ app = new Vue
 		state: []
 
 	components:
-		leaderboard: require './leaderboard/component.coffee'
-		leaders: require './leaders/component.coffee'
+		intro: require './intro/component.coffee'
 		marquee: require './marquee/component.coffee'
+		leaders: require './leaders/component.coffee'
+		leaderboard: require './leaderboard/component.coffee'
 
 	ready: () ->
 		@getAggregateOrgData()

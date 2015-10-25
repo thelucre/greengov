@@ -4,7 +4,6 @@ The marquee
 
 # Deps
 require './style.styl'
-Chart = require 'chart'
 
 # Component definition
 Marquee =
@@ -13,10 +12,14 @@ Marquee =
 
 	props: ['org']
 
+	components:
+		'energy-chart': require '../energy-chart/component.coffee'
+		'reduction-chart': require '../reduction-chart/component.coffee'
+
 	data: () ->
 		return {
 			open: false
-			orgdata: []
+			piedata: []
 		}
 
 	attached: () ->
@@ -25,22 +28,10 @@ Marquee =
 	methods:
 		toggle: () ->
 			@open = !@open
-			if @orgdata.length == 0
-				@getEneryData()
+			@$.piechart.init();
+			@$.reductionchart.init();
 			return
 
-		getEneryData: () ->
-
-			params =
-				$select: 'organizationname,sourcename,SUM(co2e)'
-				$group: 'organizationname,sourcename'
-				$where: 'organizationname=\''+(@org.name.replace('\'','\'\'')+'\'')
-
-			@$http.get @endpoint + $.param(params), (data, status, request) =>
-				@$set('orgdata', data)
-				console.log @orgdata
-				@buildCharts()
-			return
 
 		buildCharts: () ->
 			ctx = @$$.pie.getContext '2d'
@@ -50,13 +41,14 @@ Marquee =
 
 	computed:
 		isPassing: () ->
-			return (@org.reduction >= 0.1)
+			return (@org.reduction >= 0.08)
 
 		pieData: () ->
-			temp = _.map @orgdata, (type, i) ->
+			temp = _.map @piedata, (type, i) ->
+				console.log i
 				return {
-					color: '#000'
-					value: type.sum_co2e
+					color: chartColors.colors[i % chartColors.colors.length]
+					value: parseInt(type.sum_co2e).toFixed(0)
 					hightlight: '#444'
 					label: type.sourcename
 				}

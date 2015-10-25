@@ -6,5 +6,5 @@
 		%span.pass-fail(v-class=" pass: isPassing") {{ grade }}
 		%span.reduction(v-class=" pass: isPassing") {{ (org.reduction*100).toFixed(1)+ '%' }}
 	.item-content
-		%h1 charts n shit
-		%canvas(v-el="pie")
+		%energy-chart(v-ref="piechart")
+		%reduction-chart(v-ref="reductionchart")

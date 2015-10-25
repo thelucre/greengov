@@ -288,7 +288,8 @@ p {
   line-height: 50px;
   padding: 0 20px;
   cursor: pointer;
-  transition: background-color 350ms 0ms ease-in-out;
+  -webkit-transition: background-color 350ms 0ms ease-in-out;
+          transition: background-color 350ms 0ms ease-in-out;
 }
 .org-detail:hover {
   background-color: #606e7e;
@@ -313,7 +314,9 @@ p {
   font-weight: 600;
 }
 .org-detail .item-header span.name .vert-center {
-  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+          transform: translateY(-50%);
   position: absolute;
   top: 50%;
   left: 0;

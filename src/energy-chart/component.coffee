@@ -54,7 +54,7 @@ Marquee =
 				return {
 					color: chartColors.colors[i % chartColors.colors.length]
 					value: parseInt(type.sum_co2e).toFixed(0)
-					hightlight: '#444'
+					highlight: chartColors.highlights[i % chartColors.highlights.length]
 					label: type.sourcename
 				}
 			return temp

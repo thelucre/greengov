@@ -457,6 +457,7 @@ p {
   background: #f3f4f4;
   display: none;
   margin-bottom: 20px;
+  padding-bottom: 20px;
 }
 .org-detail .item-content:after {
   content: "";

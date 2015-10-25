@@ -34382,7 +34382,7 @@
 	        return {
 	          color: chartColors.colors[i % chartColors.colors.length],
 	          value: parseInt(type.sum_co2e).toFixed(0),
-	          hightlight: '#444',
+	          highlight: chartColors.highlights[i % chartColors.highlights.length],
 	          label: type.sourcename
 	        };
 	      });
@@ -34431,7 +34431,7 @@
 
 	module.exports = {
 	  colors: ['#8781bd', '#c6f659', '#c64c56', '#3cb878', '#fff200', '#ee145b', '#64d2e9', '#fc6900', '#ff00ff', '#46cdc4'],
-	  highlights: ['#8781bd', '#c6f659', '#c64c56', '#3cb878', '#fff200', '#ee145b', '#64d2e9', '#fc6900', '#ff00ff', '#46cdc4']
+	  highlights: ['#d4d1f0', '#effecb', '#eda8ae', '#a4ebc7', '#fdfabf', '#ff9abb', '#b6f1fd', '#ffbd8e', '#ff9cff', '#b7eeea']
 	};
 
 
@@ -34502,7 +34502,9 @@
 	              return 1 - i * 0.02;
 	            }),
 	            fillColor: '#556270',
-	            strokeColor: '#556270'
+	            strokeColor: '#556270',
+	            highlightFill: '#5f6f81',
+	            highlightStroke: '#5f6f81'
 	          }, {
 	            label: 'Actual',
 	            data: _.map(this.org.years, (function(_this) {
@@ -34511,7 +34513,9 @@
 	              };
 	            })(this)),
 	            fillColor: '#c7f464',
-	            strokeColor: '#c7f464'
+	            strokeColor: '#c7f464',
+	            highlightFill: '#d1f67e',
+	            highlightStroke: '#d1f67e'
 	          }
 	        ]
 	      };

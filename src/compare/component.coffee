@@ -10,4 +10,8 @@ Marquee =
 	template: require './template.haml'
 	inherit: true
 
+	computed:
+		src: () ->
+			'img/car.png'
+
 module.exports = Marquee

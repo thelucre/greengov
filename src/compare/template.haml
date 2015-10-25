@@ -1,2 +1,17 @@
-.compare
-	%h1 car stuff
+.block.compare
+	.content
+		%h1.header
+			%span Compare to what we know
+
+		%p
+			California government buildings reducing their
+			%sup 2
+			emissions by 10% is like
+
+		%h2 55,000 Cars
+
+		%p being taken off the streets.
+
+		.cars
+			.car(v-repeat="n in 55")
+				%img(v-attr='src: src')

@@ -1,2 +1,28 @@
+@import '~variables.styl'
+
 .compare
 	text-align center
+
+	h2
+		font-size 100px
+		text-transform uppercase
+		color green
+		margin 0
+
+	p
+		font-size 25px
+		margin 10px 0
+
+	.cars
+		display inline-block
+		width 100%
+		margin-top 60px
+
+	.car
+		float left
+		width ((100% - ((10 - 1) * 2%)) / 10)
+		margin-right 2%
+		margin-bottom 40px
+
+		&:nth-of-type(10n)
+			margin-right 0

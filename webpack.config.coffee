@@ -54,6 +54,7 @@ module.exports =
 			'vue-router': bower_dir + '/vue-router/dist/vue-router.js'
 			'vue-resource': bower_dir + '/vue-resource/dist/vue-resource.js'
 			'velocity': bower_dir + '/velocity/velocity.js'
+			'chart': bower_dir + '/Chart.js/Chart.min.js'
 
 	plugins: [
 		new webpack.OldWatchingPlugin,

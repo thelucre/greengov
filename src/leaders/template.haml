@@ -1,7 +1,16 @@
 .leaders(class='type-{{type}}')
-	%h1 {{ title }}
+	%h1 Of all the agencies in California
 
-	%ol.organizations
-		%li(v-repeat='org in leaders')
-			%span.name {{ org.name }}
-			%span.bar(v-style='width: org.reduction | percent') {{ org.reduction | percent 1 }}
+	.cols
+
+		.the-best
+			%h2 The best
+			%li(v-repeat='org in best')
+				%span.name {{ org.name }}
+				%span.bar(v-style='width: org.reduction | percent') {{ org.reduction | percent 1 }}
+
+		.the-worst
+			%h2 The worst
+			%li(v-repeat='org in worst')
+				%span.name {{ org.name }}
+				%span.bar(v-style='width: org.reduction | percent') {{ org.reduction | percent 1 }}

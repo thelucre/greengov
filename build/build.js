@@ -34107,7 +34107,7 @@
 /* 12 */
 /***/ function(module, exports) {
 
-	module.exports = "<div class='leaderboard'>\n  <h1 class='title'>The full leaderboard</h1>\n  <ul class='organizations'>\n    <li class='list-header'>\n      <span class='rank'>Rank</span>\n      <span class='name'>Agency Name</span>\n      <span class='pass-fail'>Pass/Fail</span>\n      <span class='reduction'>Reduction</span>\n    </li>\n    <li v-repeat='org in organizationsWithStats'>\n      <org-detail org='{{ org }}'></org-detail>\n    </li>\n  </ul>\n</div>";
+	module.exports = "<div class='leaderboard'>\n  <h1 class='dark header'>\n    <span>How everyone stacks up</span>\n  </h1>\n  <ul class='organizations'>\n    <li class='list-header'>\n      <span class='rank'>Rank</span>\n      <span class='name'>Agency Name</span>\n      <span class='pass-fail'>Pass/Fail</span>\n      <span class='reduction'>Reduction</span>\n    </li>\n    <li v-repeat='org in organizationsWithStats'>\n      <org-detail org='{{ org }}'></org-detail>\n    </li>\n  </ul>\n</div>";
 
 /***/ },
 /* 13 */
@@ -34261,13 +34261,13 @@
 	  template: __webpack_require__(21),
 	  inherit: true,
 	  computed: {
-	    grade: function() {
+	    src: function() {
 	      var reduction;
 	      reduction = 1 - this.state[this.state.length - 1].sum_co2e / this.state[0].sum_co2e;
 	      if (reduction < 0.1) {
-	        return 'failing';
+	        return '/img/marquee/failing.png';
 	      } else {
-	        return 'succeeding';
+	        return '/img/marquee/succeeding.png';
 	      }
 	    }
 	  }
@@ -34286,7 +34286,7 @@
 /* 21 */
 /***/ function(module, exports) {
 
-	module.exports = "<div class='marquee'>\n  <template v-if='state.length > 0'>\n    <h1>\n      California\n      is {{ grade }}\n      to reduce CO<sup>2</sup> emissions.\n    </h1>\n  </template>\n</div>";
+	module.exports = "<div class='marquee'>\n  <img v-if='state.length' v-attr='src: src'>\n</div>";
 
 /***/ },
 /* 22 */

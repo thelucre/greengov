@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Roboto:400,700,400italic);/* normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
+@import url(https://fonts.googleapis.com/css?family=Roboto+Condensed:300|Roboto:400,700,400italic);/* normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
 html {
   font-family: sans-serif;
   -ms-text-size-adjust: 100%;
@@ -187,6 +187,10 @@ th {
   display: inline-block;
   box-shadow: 0 3px 8px rgba(0,0,0,0.2);
 }
+.header.dark span {
+  background: #556270;
+  color: #f3f4f4;
+}
 a {
   text-decoration: none;
   color: inherit;
@@ -218,12 +222,15 @@ body {
   font-size: 18px;
 }
 h1 {
+  font-family: 'Roboto Condensed', sans-serif;
+  font-weight: 300;
   font-size: 42px;
   text-transform: uppercase;
 }
 h2 {
   font-size: 30px;
   text-transform: uppercase;
+  letter-spacing: -1px;
 }
 p {
   line-height: 1.4em;
@@ -232,14 +239,6 @@ p {
   background: #64d2e9;
   text-align: center;
   padding: 80px;
-}
-.leaderboard .title {
-  display: inline-block;
-  background: #556270;
-  padding: 10px 40px;
-  font-size: 34px;
-  text-align: center;
-  box-shadow: 0 3px 8px rgba(0,0,0,0.2);
 }
 .leaderboard .organizations {
   text-align: left;
@@ -369,6 +368,7 @@ p {
 .leaders h2 {
   font-size: 30px;
   text-align: center;
+  margin-bottom: 40px;
 }
 .leaders h2 span {
   display: inline-block;
@@ -407,6 +407,7 @@ p {
   padding: 5px;
   color: #556270;
   box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+  min-width: 80px;
 }
 .leaders .best .bar {
   background: #c7f464;
@@ -420,5 +421,12 @@ p {
   text-align: center;
   font-style: italic;
 }
-/*# sourceMappingURL=src/leaders/style.css.map *//*# sourceMappingURL=src/marquee/style.css.map */
+/*# sourceMappingURL=src/leaders/style.css.map */.marquee {
+  text-align: center;
+  padding: 80px 0;
+}
+.marquee img {
+  max-width: 600px;
+}
+/*# sourceMappingURL=src/marquee/style.css.map */
 /*# sourceMappingURL=style.css.map*/

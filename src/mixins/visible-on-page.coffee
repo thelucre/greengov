@@ -17,12 +17,12 @@ module.exports = {
 	methods:
 		onScroll: () ->
 			return if @isVisible
-
 			if @checkVisiblity()
 				@isVisible = true
 			return
 
 		checkVisiblity: () ->
+			docViewTop = @$win.scrollTop()
 			docViewBottom = docViewTop + @$win.height()
 			elemTop = $(@$el).offset().top
 			return (elemTop + @offset <= docViewBottom)

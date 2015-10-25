@@ -2,7 +2,7 @@
 @import '~mixins.styl'
 
 .org-detail
-	height 50px
+
 	background gray
 	color white
 	line-height 50px
@@ -13,37 +13,53 @@
 	&:hover
 		background-color lighten(gray, 8%)
 
-	span
-		display inline-block
-		vertical-align middle
+	.item-header
+		height 50px
 
-		&.rank
-			font-size 26px
-			font-weight 600
-			letter-spacing -2px
+		span
+			display inline-block
+			vertical-align middle
 
-		&.name
-			font-size 13px
-			position relative
-			height 50px
-			line-height:15px;
-			font-weight 600
+			&.rank
+				font-size 26px
+				font-weight 600
+				letter-spacing -2px
 
-			.vert-center
-				transform translateY(-50%)
-				position absolute
-				top 50%
-				left 0
+			&.name
+				font-size 13px
+				position relative
+				height 50px
+				line-height:15px;
+				font-weight 600
 
-		&.pass-fail, &.reduction
-			font-size 26px
-			text-transform uppercase
-			font-weight 600
-			letter-spacing -2px
-			color red
+				.vert-center
+					transform translateY(-50%)
+					position absolute
+					top 50%
+					left 0
 
-			&.pass
-				color green
+			&.pass-fail, &.reduction
+				font-size 26px
+				text-transform uppercase
+				font-weight 600
+				letter-spacing -2px
+				color red
 
-		&.reduction
-			text-align right
+				&.pass
+					color green
+
+			&.reduction
+				text-align right
+
+	.item-content
+		background white
+		height 0
+		overflow hidden
+		padding 0 20px
+
+	&.open
+		padding-bottom 20px
+
+		.item-content
+			height auto
+			padding:20px

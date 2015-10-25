@@ -11,8 +11,6 @@ app = new Vue
 
 	data:
 		endpoint: 'https://greengov.data.ca.gov/resource/umpc-nnuk.json?'
-		params:
-			'$limit': 50000
 		organizations: []
 		state: []
 

@@ -12,8 +12,31 @@ Marquee =
 
 	props: ['org']
 
-	attached: () ->
-		return
+	data: () ->
+		return {
+			open: false
+			orgdata: []
+		}
+
+	methods:
+		toggle: () ->
+			@open = !@open
+			if @orgdata.length == 0
+				@getData()
+			return
+
+		getData: () ->
+
+			params =
+				$select: 'organizationname,emissionyear,SUM(co2e)'
+				$group: 'organizationname,emissionyear'
+				
+				# replace qutoes with two single quotes for a proper SQL query syntax
+				$where: ('organizationname=\''+@org.name.replace('\'','\'\'')+'\'')
+
+			@$http.get @endpoint + $.param(params), (data, status, request) =>
+				@$set('orgdata', data)
+			return
 
 	computed:
 		isPassing: () ->

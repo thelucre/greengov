@@ -34136,6 +34136,7 @@
 	  ready: function() {
 	    return this.$watch('state.length', this.buildChart);
 	  },
+	  mixins: [__webpack_require__(42)],
 	  methods: {
 	    buildChart: function() {
 	      var ctx;
@@ -34186,7 +34187,7 @@
 /* 14 */
 /***/ function(module, exports) {
 
-	module.exports = "<div class='block blue intro'>\n  <div class='content'>\n    <div class='cols-2'>\n      <div class='left'>\n        <h1 class='header'>\n          <span>The goal</span>\n        </h1>\n        <p>In 2012, Governor Brown <a href=\"https://www.gov.ca.gov/news.php?id=17508\" target=\"_blank\">issued an executive order</a> requiring all state agencies to <strong>reduce greenhouse gas emissions</strong> by at least <strong>10%</strong> of their 2010 levels <strong>by 2015</strong>.  And by 2020, these reductions should be at 20%.</p>\n        <p>The state is currently meeting and <strong>exceeding</strong> these targets as a whole.</p>\n      </div>\n      <div class='right'>\n        <div class='chart'>\n          <h2>CO<sup>2</sup> emissions by year</h2>\n          <div>\n            <canvas v-el='chart'></canvas>\n            <div class='legend'>\n              <div>\n                <span class='box gray'></span>\n                Goal of 10% reduction by 2015\n              </div>\n              <div>\n                <span class='box green'></span>\n                Actual reductions in emissions\n              </div>\n              <div class='about-units'>CO<sup>2</sup> emission units are 1000 metric tons of carbon dioxide equivalent. Carbon Dioxide equivalent is determined by adding up emissions of CO2, CH4, and N2O for each source, multiplying each source by its global warming potential (GWP) and summing these emissions into a single number.</div>\n            </div>\n          </div>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>";
+	module.exports = "<div class='block blue intro'>\n  <div class='content'>\n    <div class='cols-2'>\n      <div class='left' v-class='show: isVisible, hide: !isVisible'>\n        <h1 class='header'>\n          <span>The goal</span>\n        </h1>\n        <p>In 2012, Governor Brown <a href=\"https://www.gov.ca.gov/news.php?id=17508\" target=\"_blank\">issued an executive order</a> requiring all state agencies to <strong>reduce greenhouse gas emissions</strong> by at least <strong>10%</strong> of their 2010 levels <strong>by 2015</strong>.  And by 2020, these reductions should be at 20%.</p>\n        <p>The state is currently meeting and <strong>exceeding</strong> these targets as a whole.</p>\n      </div>\n      <div class='right' v-class='show: isVisible, hide: !isVisible'>\n        <div class='chart'>\n          <h2>CO<sup>2</sup> emissions by year</h2>\n          <div>\n            <canvas v-el='chart'></canvas>\n            <div class='legend'>\n              <div>\n                <span class='box gray'></span>\n                Goal of 10% reduction by 2015\n              </div>\n              <div>\n                <span class='box green'></span>\n                Actual reductions in emissions\n              </div>\n              <div class='about-units'>CO<sup>2</sup> emission units are 1000 metric tons of carbon dioxide equivalent. Carbon Dioxide equivalent is determined by adding up emissions of CO2, CH4, and N2O for each source, multiplying each source by its global warming potential (GWP) and summing these emissions into a single number.</div>\n            </div>\n          </div>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>";
 
 /***/ },
 /* 15 */
@@ -34205,6 +34206,7 @@
 	Marquee = {
 	  template: __webpack_require__(17),
 	  inherit: true,
+	  mixins: [__webpack_require__(42)],
 	  computed: {
 	    src: function() {
 	      var reduction;
@@ -34231,7 +34233,7 @@
 /* 17 */
 /***/ function(module, exports) {
 
-	module.exports = "<div class='marquee'>\n  <img v-if='state.length' v-transition='marquee' v-attr='src: src'>\n</div>";
+	module.exports = "<div class='marquee'>\n  <img v-if='state.length' v-transition='fadeup' v-attr='src: src'>\n</div>";
 
 /***/ },
 /* 18 */
@@ -34247,9 +34249,12 @@
 	
 	_ = __webpack_require__(1);
 	
+	__webpack_require__(39);
+	
 	module.exports = {
 	  template: __webpack_require__(20),
 	  inherit: true,
+	  mixins: [__webpack_require__(42)],
 	  computed: {
 	    best: function() {
 	      return _.take(this.organizationsWithStats, 5);
@@ -34271,7 +34276,7 @@
 /* 20 */
 /***/ function(module, exports) {
 
-	module.exports = "<div class='block'>\n  <div class='content'>\n    <div class='leaders'>\n      <h1 class='header'>\n        <span>Of all California agencies&hellip;</span>\n      </h1>\n      <div class='cols-2'>\n        <div class='best'>\n          <h2>\n            <span>The best</span>\n          </h2>\n          <div class='leader' v-repeat='org in best'>\n            <div class='name'>\n              <span class='rank'>{{org.rank}}.</span>\n              {{ org.name }}\n            </div>\n            <div class='perc' v-class='negative: org.reduction < 0'>\n              <div class='bar' v-style='width: Math.min(1, Math.abs(org.reduction)) | percent'>{{ org.reduction | percent 1 }}</div>\n            </div>\n          </div>\n        </div>\n        <div class='worst'>\n          <h2>\n            <span>The worst</span>\n          </h2>\n          <div class='leader' v-repeat='org in worst'>\n            <div class='name'>\n              <span class='rank'>{{org.rank}}.</span>\n              {{ org.name }}\n            </div>\n            <div class='perc' v-class='negative: org.reduction < 0'>\n              <div class='bar' v-style='width: Math.min(1, Math.abs(org.reduction)) | percent'>{{ org.reduction | percent 1 }}</div>\n            </div>\n          </div>\n        </div>\n      </div>\n      <p class='about'>Bigger numbers are better; they represent the percentage of CO<sup>2</sup> emissions the agency has reduced (or increased, in the case of negatives) since 2010.</p>\n    </div>\n  </div>\n</div>";
+	module.exports = "<div class='block'>\n  <div class='content'>\n    <div class='leaders'>\n      <h1 class='header' v-class='show: isVisible, hide: !isVisible'>\n        <span>Of all California agencies&hellip;</span>\n      </h1>\n      <div class='cols-2'>\n        <div class='best' v-class='show: isVisible, hide: !isVisible'>\n          <h2>\n            <span>The best</span>\n          </h2>\n          <div class='leader' v-repeat='org in best'>\n            <div class='name'>\n              <span class='rank'>{{org.rank}}.</span>\n              {{ org.name }}\n            </div>\n            <div class='perc' v-class='negative: org.reduction < 0'>\n              <div class='bar' v-style='width: Math.min(1, Math.abs(org.reduction)) | percent'>{{ org.reduction | percent 1 }}</div>\n            </div>\n          </div>\n        </div>\n        <div class='worst' v-class='show: isVisible, hide: !isVisible'>\n          <h2>\n            <span>The worst</span>\n          </h2>\n          <div class='leader' v-repeat='org in worst'>\n            <div class='name'>\n              <span class='rank'>{{org.rank}}.</span>\n              {{ org.name }}\n            </div>\n            <div class='perc' v-class='negative: org.reduction < 0'>\n              <div class='bar' v-style='width: Math.min(1, Math.abs(org.reduction)) | percent'>{{ org.reduction | percent 1 }}</div>\n            </div>\n          </div>\n        </div>\n      </div>\n      <p class='about'>Bigger numbers are better; they represent the percentage of CO<sup>2</sup> emissions the agency has reduced (or increased, in the case of negatives) since 2010.</p>\n    </div>\n  </div>\n</div>";
 
 /***/ },
 /* 21 */
@@ -34286,9 +34291,7 @@
 	module.exports = {
 	  template: __webpack_require__(23),
 	  inherit: true,
-	  data: function() {
-	    return null;
-	  },
+	  mixins: [__webpack_require__(42)],
 	  components: {
 	    'org-detail': __webpack_require__(24)
 	  }
@@ -34305,7 +34308,7 @@
 /* 23 */
 /***/ function(module, exports) {
 
-	module.exports = "<div class='block blue leaderboard'>\n  <div class='content'>\n    <h1 class='header'>\n      <span>How everyone stacks up</span>\n    </h1>\n    <ul class='organizations'>\n      <li class='list-header'>\n        <span class='rank'>Rank</span>\n        <span class='name'>Agency Name</span>\n        <span class='pass-fail'>Pass/Fail</span>\n        <span class='reduction'>Reduction</span>\n      </li>\n      <li v-repeat='org in organizationsWithStats'>\n        <org-detail org='{{ org }}'></org-detail>\n      </li>\n    </ul>\n  </div>\n</div>";
+	module.exports = "<div class='block blue leaderboard'>\n  <div class='content' v-class='show: isVisible, hide: !isVisible'>\n    <h1 class='header'>\n      <span>How everyone stacks up</span>\n    </h1>\n    <ul class='organizations' v-class='show: isVisible, hide: !isVisible'>\n      <li class='list-header'>\n        <span class='rank'>Rank</span>\n        <span class='name'>Agency Name</span>\n        <span class='pass-fail'>Pass/Fail</span>\n        <span class='reduction'>Reduction</span>\n      </li>\n      <li v-repeat='org in organizationsWithStats'>\n        <org-detail org='{{ org }}'></org-detail>\n      </li>\n    </ul>\n  </div>\n</div>";
 
 /***/ },
 /* 24 */
@@ -38514,6 +38517,7 @@
 	Marquee = {
 	  template: __webpack_require__(38),
 	  inherit: true,
+	  mixins: [__webpack_require__(42)],
 	  computed: {
 	    src: function() {
 	      return 'img/car.png';
@@ -38534,7 +38538,7 @@
 /* 38 */
 /***/ function(module, exports) {
 
-	module.exports = "<div class='block compare'>\n  <div class='content'>\n    <h1 class='header'>\n      <span>Compare to what we know</span>\n    </h1>\n    <p>\n      California government buildings reducing their CO<sup>2</sup> emissions by 10% is like\n    </p>\n    <h2>55,000 Cars</h2>\n    <p>being taken off the streets.</p>\n    <div class='cars'>\n      <div class='car' v-repeat='n in 55'>\n        <img v-attr='src: src'>\n      </div>\n    </div>\n  </div>\n</div>";
+	module.exports = "<div class='block compare'>\n  <div class='content'>\n    <h1 class='header' v-class='show: isVisible, hide: !isVisible'>\n      <span>Compare to what we know</span>\n    </h1>\n    <p v-class='show: isVisible, hide: !isVisible'>\n      California government buildings reducing their CO<sup>2</sup> emissions by 10% is like\n    </p>\n    <h2 v-class='show: isVisible, hide: !isVisible'>55,000 Cars</h2>\n    <p v-class='show: isVisible, hide: !isVisible'>being taken off the streets.</p>\n    <div class='cars' v-class='show: isVisible, hide: !isVisible'>\n      <div class='car' v-repeat='n in 55'>\n        <img v-attr='src: src'>\n      </div>\n    </div>\n  </div>\n</div>";
 
 /***/ },
 /* 39 */
@@ -38542,10 +38546,70 @@
 
 	var Vue;
 	
+	__webpack_require__(40);
+	
 	Vue = __webpack_require__(7);
 	
-	Vue.transition('marquee');
+	Vue.transition('fadeup');
 
+
+/***/ },
+/* 40 */
+/***/ function(module, exports) {
+
+	// removed by extract-text-webpack-plugin
+
+/***/ },
+/* 41 */,
+/* 42 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function($) {var _;
+	
+	_ = __webpack_require__(1);
+	
+	__webpack_require__(43);
+	
+	module.exports = {
+	  data: function() {
+	    return {
+	      isVisible: false,
+	      offset: 300
+	    };
+	  },
+	  attached: function() {
+	    this.$win = $(window);
+	    this.$win.on('scroll', _.throttle(this.onScroll, 100));
+	    this.onScroll();
+	  },
+	  methods: {
+	    onScroll: function() {
+	      console.log(this.isVisible);
+	      if (this.isVisible) {
+	        return;
+	      }
+	      if (this.checkVisiblity()) {
+	        this.isVisible = true;
+	      }
+	    },
+	    checkVisiblity: function() {
+	      var docViewBottom, docViewTop, elemBottom, elemTop;
+	      docViewTop = this.$win.scrollTop();
+	      docViewBottom = docViewTop + this.$win.height();
+	      elemTop = $(this.$el).offset().top;
+	      elemBottom = elemTop + $(this.$el).height();
+	      return elemTop + this.offset <= docViewBottom;
+	    }
+	  }
+	};
+	
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
+
+/***/ },
+/* 43 */
+/***/ function(module, exports) {
+
+	// removed by extract-text-webpack-plugin
 
 /***/ }
 /******/ ]);

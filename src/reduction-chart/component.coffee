@@ -51,12 +51,16 @@ Marquee =
 							return (1 - i * 0.02)
 						fillColor: '#556270'
 						strokeColor: '#556270'
+						highlightFill: '#5f6f81'
+						highlightStroke: '#5f6f81'
 					},{
 						label: 'Actual'
 						data: _.map @org.years, (year) =>
 							return (year.sum_co2e / @org.years[0].sum_co2e)
 						fillColor: '#c7f464'
 						strokeColor: '#c7f464'
+						highlightFill: '#d1f67e'
+						highlightStroke: '#d1f67e'
 					}
 				]
 			return chartvalues

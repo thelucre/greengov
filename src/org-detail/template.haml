@@ -7,3 +7,4 @@
 		%span.reduction(v-class=" pass: isPassing") {{ (org.reduction*100).toFixed(1)+ '%' }}
 	.item-content
 		%energy-chart(v-ref="piechart")
+		%reduction-chart(v-ref="reductionchart")

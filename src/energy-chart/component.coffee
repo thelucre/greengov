@@ -43,7 +43,8 @@ Marquee =
 
 		buildCharts: () ->
 			ctx = @$$.pie.getContext '2d'
-			@pieChart = new Chart(ctx).Pie(@pieData, {animationEasing: "easeInOutQuart"})
+			@pieChart = new Chart(ctx).Pie(@pieData, { animationEasing: "easeInOutQuart", maintainAspectRatio: true })
+			# @$$.legend.innerHTML = @pieChart.generateLegend()
 			return
 
 	computed:

@@ -9,3 +9,5 @@ build
 .DS_Store
 build/build.js
 build/build.js.map
+build/style.css
+build/style.css.map

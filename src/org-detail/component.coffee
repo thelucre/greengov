@@ -4,11 +4,6 @@ The marquee
 
 # Deps
 require './style.styl'
-Chart = require 'chart'
-chartColors = require './chart-colors.coffee'
-
-Chart.defaults.global.responsive = true
-Chart.defaults.global.animationEasing = "easeInOutSine"
 
 # Component definition
 Marquee =
@@ -19,6 +14,7 @@ Marquee =
 
 	components:
 		'energy-chart': require '../energy-chart/component.coffee'
+		'reduction-chart': require '../reduction-chart/component.coffee'
 
 	data: () ->
 		return {
@@ -33,6 +29,7 @@ Marquee =
 		toggle: () ->
 			@open = !@open
 			@$.piechart.init();
+			@$.reductionchart.init();
 			return
 
 
@@ -44,7 +41,7 @@ Marquee =
 
 	computed:
 		isPassing: () ->
-			return (@org.reduction >= 0.1)
+			return (@org.reduction >= 0.08)
 
 		pieData: () ->
 			temp = _.map @piedata, (type, i) ->

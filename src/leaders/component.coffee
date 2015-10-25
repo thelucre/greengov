@@ -11,17 +11,8 @@ module.exports =
 	template: require './template.haml'
 	inherit: true
 
-	props: [
-		'type' # The type of leaders to be displayed, either 'top' or 'bottom'
-	]
-
 	computed:
 
-		# The title of the component
-		title: -> if @type == 'top' then 'The best' else 'The worst'
+		best: -> _.take(@organizationsWithStats, 5)
 
-		# Order the list of organizations
-		leaders: ->
-			if @type == 'top'
-			then _.take(@organizationsWithStats, 5)
-			else _.takeRight(@organizationsWithStats, 5)
+		worst: -> _.takeRight(@organizationsWithStats, 5)

@@ -29,9 +29,12 @@ Marquee =
 	methods:
 		toggle: () ->
 			@open = !@open
-			$(@$$.content).velocity 'slideDown', complete: () =>
-				@$.piechart.init();
-				@$.reductionchart.init();
+			if !@open
+				$(@$$.content).velocity 'slideUp'
+			else
+				$(@$$.content).velocity 'slideDown', complete: () =>
+					@$.piechart.init();
+					@$.reductionchart.init();
 			return
 
 

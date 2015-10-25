@@ -1,5 +1,5 @@
 @import 'normalize.styl'
-@import url('https://fonts.googleapis.com/css?family=Roboto:400,700')
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,700,400italic');
 @import 'variables.styl'
 @import 'mixins.styl'
 
@@ -24,11 +24,19 @@ img
 	-moz-osx-font-smoothing grayscale
 }
 
+// Global max width
+.max-width
+	max-width max-width
+	padding-left 40px
+	padding-right 40px
+
+
 // Default typography styles
 body
 	color white
 	background gray
 	font-family 'Roboto', sans-serif
+	font-size 18px
 
 h1
 	font-size 42px
@@ -37,3 +45,6 @@ h1
 h2
 	font-size 30px
 	text-transform uppercase
+
+p
+	line-height 1.4em

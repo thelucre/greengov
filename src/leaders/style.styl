@@ -2,6 +2,7 @@
 @import '~mixins.styl'
 
 .leaders
+	padding 80px 0
 
 	// Setup columns
 	.cols
@@ -10,12 +11,63 @@
 			float left
 			width 50%
 
+			&:first-child {
+				border-right 1px solid teal
+				padding-right 40px
+
+				+ * {
+					padding-left 40px
+				}
+			}
+
+	h1
+		text-align center
+		margin-bottom 80px
+		span
+			border 1px solid white
+			padding 30px
+			display inline-block
 
 	// The col headers
 	h2
 		font-size 30px
 		text-align center
-		border-bottom 10px solid
-		display inline-block
-	.best h2
+		span
+			display inline-block
+			border-bottom 10px solid
+	.best h2 span
 		border-bottom-color green
+	.worst h2 span
+		border-bottom-color red
+
+	// Individual agencies
+	.leader
+		font-size 18px
+		font-weight bold
+		margin 30px 0
+		.rank
+			margin-right 10px
+
+	// Contains the bars
+	.perc
+		margin-top 10px
+		text-align left
+		.bar
+			text-align right
+
+
+	// The bars
+	.bar
+		display inline-block
+		padding 5px
+		color gray
+	.best .bar
+		background green
+	.worst .bar
+		background red
+
+	.about
+		max-width 600px
+		margin 40px auto 0
+		text-align center
+		font-style italic

@@ -181,24 +181,27 @@ th {
   padding: 40px 0 80px;
   margin: auto;
 }
-.header span {
+.header > span {
   background: #f3f4f4;
   color: #556270;
   padding: 30px;
   display: inline-block;
   box-shadow: 0 3px 8px rgba(0,0,0,0.2);
 }
-.blue .header span {
+.blue .header > span {
   background: #556270;
   color: #f3f4f4;
 }
 .block {
-  max-width: 1366px;
   padding: 80px;
   margin: 0 auto;
 }
 .block.blue {
   background: #64d2e9;
+}
+.block .content {
+  max-width: 1366px;
+  margin: 0 auto;
 }
 .cols-2:after {
   content: "";
@@ -334,11 +337,13 @@ p {
 }
 .intro .chart canvas {
   width: 100%;
-  height: 280px;
+  height: 300px;
 }
 /*# sourceMappingURL=src/intro/style.css.map */.marquee {
   text-align: center;
   padding: 80px 0;
+  overflow: hidden;
+  height: 380px;
 }
 .marquee img {
   max-width: 600px;
@@ -573,6 +578,30 @@ p {
 }
 /*# sourceMappingURL=src/reduction-chart/style.css.map */.compare {
   text-align: center;
+}
+.compare h2 {
+  font-size: 100px;
+  text-transform: uppercase;
+  color: #c7f464;
+  margin: 0;
+}
+.compare p {
+  font-size: 25px;
+  margin: 10px 0;
+}
+.compare .cars {
+  display: inline-block;
+  width: 100%;
+  margin-top: 60px;
+}
+.compare .car {
+  float: left;
+  width: 8.2%;
+  margin-right: 2%;
+  margin-bottom: 40px;
+}
+.compare .car:nth-of-type(10n) {
+  margin-right: 0;
 }
 /*# sourceMappingURL=src/compare/style.css.map */
 /*# sourceMappingURL=style.css.map*/

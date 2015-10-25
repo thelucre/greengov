@@ -5,7 +5,7 @@
 	"dependencies": {
 		"modernizr": "2.8.2",
 		"jquery": "1.11.2",
-		"lodash": "~2",
+		"lodash": "~3",
 		"bkwld": "bkwld/js-library",
 		"fastclick": "~1",
 		"velocity": "*",

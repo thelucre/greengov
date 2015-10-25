@@ -4,6 +4,7 @@ List of the top leaders and losers
 
 # Deps
 require './style.styl'
+_ = require 'lodash'
 
 # Component definition
 module.exports =
@@ -14,24 +15,13 @@ module.exports =
 		'type' # The type of leaders to be displayed, either 'top' or 'bottom'
 	]
 
-	data: -> {
-		organizations: [
-			{
-				name: 'Farts',
-				percent: .2222222,
-			}
-			{
-				name: 'Less farty',
-				percent: .150000,
-			}
-			{
-				name: 'The most farty ever',
-				percent: .111111,
-			}
-		]
-	}
-
 	computed:
 
 		# The title of the component
-		title: -> if @type == 'top' then 'Most conserved' else 'Least conserved'
+		title: -> if @type == 'top' then 'The best' else 'The worst'
+
+		# Order the list of organizations
+		leaders: ->
+			if @type == 'top'
+			then _.take(@organizationsWithStats, 5)
+			else _.takeRight(@organizationsWithStats, 5)

@@ -1,0 +1,9 @@
+.org-detail(v-class=" open: open")
+	.item-header(v-on="click: toggle()")
+		%span.rank {{ ("0" + org.rank).slice(-2) }}
+		%span.name
+			.vert-center {{ org.name }}
+		%span.pass-fail(v-class=" pass: isPassing") {{ grade }}
+		%span.reduction(v-class=" pass: isPassing") {{ (org.reduction*100).toFixed(1)+ '%' }}
+	.item-content
+		%h1 charts n shit

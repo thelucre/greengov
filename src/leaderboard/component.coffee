@@ -13,4 +13,5 @@ module.exports =
 	data: () ->
 		return null
 
-	
+	components:
+		'org-detail': require '../org-detail/component.coffee'

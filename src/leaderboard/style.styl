@@ -1,0 +1,59 @@
+@import '~variables.styl'
+@import '~mixins.styl'
+
+.leaderboard
+	background blue
+	text-align center
+	padding 80px
+
+	.title
+		display inline-block
+		background gray
+		padding 10px 40px
+		font-size 34px
+		text-align center
+		box-shadow standard-shadow
+
+	.organizations
+		text-align left
+		box-shadow standard-shadow
+		padding 0
+		max-width 1200px
+		margin 60px auto 0
+
+		li
+			list-style none
+			padding 0
+			margin 0
+			border-bottom 1px solid lightgray
+
+
+			&:last-of-type
+				border-bottom none
+
+			&.list-header
+				background gray
+				height 40px
+				line-height 40px
+
+				font-weight 600
+				text-transform uppercase
+				font-size 13px
+				padding 0 20px
+
+			span
+				display inline-block
+				padding-right: 10px;
+
+				&.rank
+					width 10%
+
+				&.name
+					width 55%
+
+				&.pass-fail
+					width 15%
+
+				&.reduction
+					width 18%
+					text-align right

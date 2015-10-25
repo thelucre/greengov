@@ -1,5 +1,5 @@
 %h1 The full leaderboard
 %ol.organizations
-	%li(v-repeat='org in organizations')
+	%li(v-repeat='org in organizationsWithStats')
 		%span.name {{ org.name }}
 		%span.bar(v-style='width: org.percent | percent') {{ Math.round(org.percent*1000)/1000 | percent }}

@@ -284,9 +284,57 @@ p {
   border-bottom-color: #556270;
 }
 .intro .chart {
+  background: #f3f4f4;
+  font-size: 14px;
+  color: #556270;
+  padding: 10px;
+}
+.intro .chart h2 {
+  font-size: 16px;
+  margin: 0 auto 5px;
+  text-align: center;
+}
+.intro .chart .legend {
+  margin-top: 10px;
+  position: relative;
+}
+.intro .chart .legend > * {
+  margin: 5px 0;
+}
+.intro .chart .box {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  margin-right: 5px;
+  verticle-align: middle;
+}
+.intro .chart .box.gray {
   background: #556270;
+}
+.intro .chart .box.green {
+  background: #c7f464;
+}
+.intro .chart .about-units {
+  font-size: 12px;
+  font-style: italic;
+  position: absolute;
+  background: rgba(85,98,112,0.9);
+  color: #f3f4f4;
+  border: 1px solid #556270;
+  top: 100%;
+  padding: 10px;
+  opacity: 0;
+  -webkit-transition: opacity 200ms;
+          transition: opacity 200ms;
+  border-radius: 4px;
+}
+.intro .chart:hover .about-units,
+.intro .chart:active .about-units {
+  opacity: 1;
+}
+.intro .chart canvas {
   width: 100%;
-  height: 400px;
+  height: 280px;
 }
 /*# sourceMappingURL=src/intro/style.css.map */.marquee {
   text-align: center;

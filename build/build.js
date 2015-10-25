@@ -44,7 +44,7 @@
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
-	/* WEBPACK VAR INJECTION */(function(_, $) {var Vue, app;
+	/* WEBPACK VAR INJECTION */(function(_, $) {var Chart, Vue, app;
 	
 	__webpack_require__(6);
 	
@@ -55,6 +55,14 @@
 	Vue.config.debug = true;
 	
 	__webpack_require__(9);
+	
+	Chart = __webpack_require__(27);
+	
+	Chart.defaults.global.tooltipFillColor = 'rgba(85,98,112,0.9)';
+	
+	Chart.defaults.global.responsive = true;
+	
+	Chart.defaults.global.animationEasing = "easeInOutQuart";
 	
 	app = new Vue({
 	  el: '#app',
@@ -34085,11 +34093,62 @@
 	/*
 	The marquee
 	 */
+	var Chart, _;
+	
 	__webpack_require__(11);
+	
+	_ = __webpack_require__(1);
+	
+	Chart = __webpack_require__(27);
 	
 	module.exports = {
 	  template: __webpack_require__(12),
-	  inherit: true
+	  inherit: true,
+	  data: function() {
+	    return {
+	      years: [2010, 2011, 2012, 2013, 2014]
+	    };
+	  },
+	  ready: function() {
+	    return this.$watch('state.length', this.buildChart);
+	  },
+	  methods: {
+	    buildChart: function() {
+	      var ctx;
+	      ctx = this.$$.chart.getContext('2d');
+	      return new Chart(ctx).Line(this.chartData, {});
+	    },
+	    goalPerYear: function(year) {
+	      var amt;
+	      amt = this.state[0].sum_co2e * (1 - (year - 2010) / this.years.length * .1);
+	      return Math.round(amt / 1000);
+	    },
+	    actualPerYear: function(amt) {
+	      return Math.round(amt / 1000);
+	    }
+	  },
+	  computed: {
+	    chartData: function() {
+	      return {
+	        labels: this.years,
+	        datasets: [
+	          {
+	            label: 'Goal',
+	            data: _.map(this.years, this.goalPerYear),
+	            strokeColor: "#556270",
+	            pointColor: "#556270",
+	            fillColor: "rgba(255,255,255,0)"
+	          }, {
+	            label: 'Actual',
+	            data: _.map(_.pluck(this.state, 'sum_co2e'), this.actualPerYear),
+	            strokeColor: "#c7f464",
+	            pointColor: "#c7f464",
+	            fillColor: "rgba(199,244,100,0.2)"
+	          }
+	        ]
+	      };
+	    }
+	  }
 	};
 
 
@@ -34103,7 +34162,7 @@
 /* 12 */
 /***/ function(module, exports) {
 
-	module.exports = "<div class='block blue intro'>\n  <div class='cols-2'>\n    <div class='left'>\n      <h1 class='header'>\n        <span>The goal</span>\n      </h1>\n      <p>Governor Brown <a href=\"https://www.gov.ca.gov/news.php?id=17508\" target=\"_blank\">has required</a> that all agencies reduce greenhouse gas emissions by at least 10% of their 2010 levels by 2015.  And by 2020, these reductions should be at 20%.</p>\n      <p>The state is currently meeting and these exceeding these targets as a whole.</p>\n    </div>\n    <div class='right'>\n      <div class='chart'></div>\n    </div>\n  </div>\n</div>";
+	module.exports = "<div class='block blue intro'>\n  <div class='cols-2'>\n    <div class='left'>\n      <h1 class='header'>\n        <span>The goal</span>\n      </h1>\n      <p>Governor Brown <a href=\"https://www.gov.ca.gov/news.php?id=17508\" target=\"_blank\">has required</a> that all agencies reduce greenhouse gas emissions by at least 10% of their 2010 levels by 2015.  And by 2020, these reductions should be at 20%.</p>\n      <p>The state is currently meeting and exceeding these targets as a whole.</p>\n    </div>\n    <div class='right'>\n      <div class='chart'>\n        <h2>CO<sup>2</sup> emissions by year</h2>\n        <div>\n          <canvas v-el='chart'></canvas>\n        </div>\n        <div class='legend'>\n          <div>\n            <span class='box gray'></span>\n            Goal of 10% reduction by 2015\n          </div>\n          <div>\n            <span class='box green'></span>\n            Actual reductions in emissions\n          </div>\n          <div class='about-units'>CO<sup>2</sup> emission units are 1000 metric tons of carbon dioxide equivalent. Carbon Dioxide equivalent is determined by adding up emissions of CO2, CH4, and N2O for each source, multiplying each source by its global warming potential (GWP) and summing these emissions into a single number.</div>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>";
 
 /***/ },
 /* 13 */
@@ -34332,10 +34391,6 @@
 	Chart = __webpack_require__(27);
 	
 	chartColors = __webpack_require__(29);
-	
-	Chart.defaults.global.responsive = true;
-	
-	Chart.defaults.global.animationEasing = "easeInOutQuart";
 	
 	Marquee = {
 	  template: __webpack_require__(30),

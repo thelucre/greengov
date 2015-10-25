@@ -4,6 +4,6 @@
 		%span.name
 			.vert-center {{ org.name }}
 		%span.pass-fail(v-class=" pass: isPassing") {{ grade }}
-		%span.reduction {{ Math.round(org.reduction*1000)/1000 | percent }}
+		%span.reduction(v-class=" pass: isPassing") {{ (org.reduction*100).toFixed(1)+ '%' }}
 	.item-content(style="display:none")
 		%h1 charts n shit

@@ -7,6 +7,11 @@
 	color white
 	line-height 50px
 	padding 0 20px
+	cursor pointer
+	transition background-color 350ms 0ms ease-in-out
+
+	&:hover
+		background-color lighten(gray, 8%)
 
 	span
 		display inline-block
@@ -30,7 +35,7 @@
 				top 50%
 				left 0
 
-		&.pass-fail
+		&.pass-fail, &.reduction
 			font-size 26px
 			text-transform uppercase
 			font-weight 600
@@ -41,4 +46,4 @@
 				color green
 
 		&.reduction
-			width 15%
+			text-align right

@@ -2,7 +2,7 @@
 @import '~mixins.styl'
 
 .leaderboard
-	background teal
+	background blue
 	text-align center
 	padding 80px
 
@@ -12,10 +12,13 @@
 		padding 10px 40px
 		font-size 34px
 		text-align center
-
+		box-shadow standard-shadow
 
 	.organizations
 		text-align left
+		box-shadow standard-shadow
+		padding 0
+		margin-top 60px
 
 		li
 			list-style none
@@ -39,6 +42,7 @@
 
 			span
 				display inline-block
+				padding-right: 10px;
 
 				&.rank
 					width 10%
@@ -50,4 +54,5 @@
 					width 15%
 
 				&.reduction
-					width 15%
+					width 18%
+					text-align right

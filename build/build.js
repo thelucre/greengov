@@ -64,9 +64,10 @@
 	    state: []
 	  },
 	  components: {
-	    leaderboard: __webpack_require__(10),
+	    intro: __webpack_require__(29),
+	    marquee: __webpack_require__(21),
 	    leaders: __webpack_require__(18),
-	    marquee: __webpack_require__(21)
+	    leaderboard: __webpack_require__(10)
 	  },
 	  ready: function() {
 	    this.getAggregateOrgData();
@@ -34107,7 +34108,7 @@
 /* 12 */
 /***/ function(module, exports) {
 
-	module.exports = "<div class='leaderboard'>\n  <h1 class='dark header'>\n    <span>How everyone stacks up</span>\n  </h1>\n  <ul class='organizations'>\n    <li class='list-header'>\n      <span class='rank'>Rank</span>\n      <span class='name'>Agency Name</span>\n      <span class='pass-fail'>Pass/Fail</span>\n      <span class='reduction'>Reduction</span>\n    </li>\n    <li v-repeat='org in organizationsWithStats'>\n      <org-detail org='{{ org }}'></org-detail>\n    </li>\n  </ul>\n</div>";
+	module.exports = "<div class='block blue leaderboard'>\n  <h1 class='header'>\n    <span>How everyone stacks up</span>\n  </h1>\n  <ul class='organizations'>\n    <li class='list-header'>\n      <span class='rank'>Rank</span>\n      <span class='name'>Agency Name</span>\n      <span class='pass-fail'>Pass/Fail</span>\n      <span class='reduction'>Reduction</span>\n    </li>\n    <li v-repeat='org in organizationsWithStats'>\n      <org-detail org='{{ org }}'></org-detail>\n    </li>\n  </ul>\n</div>";
 
 /***/ },
 /* 13 */
@@ -34260,7 +34261,7 @@
 /* 20 */
 /***/ function(module, exports) {
 
-	module.exports = "<div class='max-width'>\n  <div class='leaders'>\n    <h1 class='header'>\n      <span>Of all agencies in California&hellip;</span>\n    </h1>\n    <div class='cols'>\n      <div class='best'>\n        <h2>\n          <span>The best</span>\n        </h2>\n        <div class='leader' v-repeat='org in best'>\n          <div class='name'>\n            <span class='rank'>{{org.rank}}.</span>\n            {{ org.name }}\n          </div>\n          <div class='perc' v-class='negative: org.reduction < 0'>\n            <div class='bar' v-style='width: Math.min(1, Math.abs(org.reduction)) | percent'>{{ org.reduction | percent 1 }}</div>\n          </div>\n        </div>\n      </div>\n      <div class='worst'>\n        <h2>\n          <span>The worst</span>\n        </h2>\n        <div class='leader' v-repeat='org in worst'>\n          <div class='name'>\n            <span class='rank'>{{org.rank}}.</span>\n            {{ org.name }}\n          </div>\n          <div class='perc' v-class='negative: org.reduction < 0'>\n            <div class='bar' v-style='width: Math.min(1, Math.abs(org.reduction)) | percent'>{{ org.reduction | percent 1 }}</div>\n          </div>\n        </div>\n      </div>\n    </div>\n    <p class='about'>Bigger numbers are better; they represent the percentage of CO<sup>2</sup> emissions the agency has reduced (or increased, in the case of negatives) since 2010.</p>\n  </div>\n</div>";
+	module.exports = "<div class='block'>\n  <div class='leaders'>\n    <h1 class='header'>\n      <span>Of all agencies in California&hellip;</span>\n    </h1>\n    <div class='cols-2'>\n      <div class='best'>\n        <h2>\n          <span>The best</span>\n        </h2>\n        <div class='leader' v-repeat='org in best'>\n          <div class='name'>\n            <span class='rank'>{{org.rank}}.</span>\n            {{ org.name }}\n          </div>\n          <div class='perc' v-class='negative: org.reduction < 0'>\n            <div class='bar' v-style='width: Math.min(1, Math.abs(org.reduction)) | percent'>{{ org.reduction | percent 1 }}</div>\n          </div>\n        </div>\n      </div>\n      <div class='worst'>\n        <h2>\n          <span>The worst</span>\n        </h2>\n        <div class='leader' v-repeat='org in worst'>\n          <div class='name'>\n            <span class='rank'>{{org.rank}}.</span>\n            {{ org.name }}\n          </div>\n          <div class='perc' v-class='negative: org.reduction < 0'>\n            <div class='bar' v-style='width: Math.min(1, Math.abs(org.reduction)) | percent'>{{ org.reduction | percent 1 }}</div>\n          </div>\n        </div>\n      </div>\n    </div>\n    <p class='about'>Bigger numbers are better; they represent the percentage of CO<sup>2</sup> emissions the agency has reduced (or increased, in the case of negatives) since 2010.</p>\n  </div>\n</div>";
 
 /***/ },
 /* 21 */
@@ -34413,6 +34414,34 @@
 /***/ function(module, exports) {
 
 	module.exports = "<div class='energy-types'>\n  <h4>Type of Energy Consumed</h4>\n  <canvas class='piechart' v-el='pie'></canvas>\n</div>";
+
+/***/ },
+/* 29 */
+/***/ function(module, exports, __webpack_require__) {
+
+	
+	/*
+	The marquee
+	 */
+	__webpack_require__(30);
+	
+	module.exports = {
+	  template: __webpack_require__(31),
+	  inherit: true
+	};
+
+
+/***/ },
+/* 30 */
+/***/ function(module, exports) {
+
+	// removed by extract-text-webpack-plugin
+
+/***/ },
+/* 31 */
+/***/ function(module, exports) {
+
+	module.exports = "<div class='block blue intro'>\n  <div class='cols-2'>\n    <div class='left'>\n      <p>Governor Brown <a href=\"https://www.gov.ca.gov/news.php?id=17508\" target=\"_blank\">has required</a> that all agencies reduce greenhouse gas emissions by at least 10% of their 2010 levels by 2015.  And by 2020, these reductions should be at 20%.</p>\n      <p>The state is currently meeting and these exceeding these targets as a whole.</p>\n    </div>\n    <div class='right'>\n      <div class='chart'></div>\n    </div>\n  </div>\n</div>";
 
 /***/ }
 /******/ ]);

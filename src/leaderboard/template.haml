@@ -1,8 +1,8 @@
 .leaderboard.block.blue
-	.content
+	.content(v-class="show: isVisible, hide: !isVisible")
 		%h1.header
 			%span How everyone stacks up
-		%ul.organizations
+		%ul.organizations(v-class="show: isVisible, hide: !isVisible")
 			%li.list-header
 				%span.rank Rank
 				%span.name Agency Name

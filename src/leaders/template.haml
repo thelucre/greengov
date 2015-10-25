@@ -1,12 +1,12 @@
 .block
 	.content
 		.leaders
-			%h1.header
+			%h1.header(v-class="show: isVisible, hide: !isVisible")
 				%span Of all California agencies&hellip;
 
 			.cols-2
 
-				.best
+				.best(v-class="show: isVisible, hide: !isVisible")
 					%h2
 						%span The best
 					.leader(v-repeat='org in best')
@@ -16,7 +16,7 @@
 						.perc(v-class='negative: org.reduction < 0')
 							.bar(v-style='width: Math.min(1, Math.abs(org.reduction)) | percent') {{ org.reduction | percent 1 }}
 
-				.worst
+				.worst(v-class="show: isVisible, hide: !isVisible")
 					%h2
 						%span The worst
 					.leader(v-repeat='org in worst')

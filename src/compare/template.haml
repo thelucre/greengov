@@ -1,15 +1,15 @@
 .block.compare
 	.content
-		%h1.header
+		%h1.header(v-class="show: isVisible, hide: !isVisible")
 			%span Compare to what we know
 
-		%p
+		%p(v-class="show: isVisible, hide: !isVisible")
 			California government buildings reducing their CO<sup>2</sup> emissions by 10% is like
 
-		%h2 55,000 Cars
+		%h2(v-class="show: isVisible, hide: !isVisible") 55,000 Cars
 
-		%p being taken off the streets.
+		%p(v-class="show: isVisible, hide: !isVisible") being taken off the streets.
 
-		.cars
+		.cars(v-class="show: isVisible, hide: !isVisible")
 			.car(v-repeat="n in 55")
 				%img(v-attr='src: src')

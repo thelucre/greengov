@@ -18,6 +18,10 @@ module.exports =
 	ready: ->
 		@$watch 'state.length', @buildChart
 
+	mixins: [
+		require '../mixins/visible-on-page.coffee'
+	]
+	
 	methods:
 
 		buildChart: ->

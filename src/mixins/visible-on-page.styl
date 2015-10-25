@@ -1,5 +1,16 @@
 .show
 	opacity: 1
+	transition transform 1200ms 100ms cubic-bezier(.14,.86,.43,.9), opacity 1000ms 200ms ease-in-out
+
+	for num in (2..10)
+		&:nth-of-type( {num} )
+			transition transform 1200ms (num * 300ms) cubic-bezier(.14,.86,.43,.9), opacity 1200ms (num * 300ms) ease-in-out
 
 .hide
-	opacity: 0.01
+	opacity: 0
+	transform translateY(80px)
+	transition transform 1200ms 100ms cubic-bezier(.14,.86,.43,.9), opacity 1000ms 200ms ease-in-out
+
+	for num in (2..10)
+		&:nth-of-type( {num} )
+			transition transform 1200ms (num * 300ms) cubic-bezier(.14,.86,.43,.9), opacity 1200ms (num * 300ms) ease-in-out

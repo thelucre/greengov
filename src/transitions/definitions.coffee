@@ -1,3 +1,5 @@
+require './style.styl'
+
 Vue = require 'vue'
 
-Vue.transition 'marquee'
+Vue.transition 'fadeup'

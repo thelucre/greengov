@@ -10,6 +10,10 @@ Marquee =
 	template: require './template.haml'
 	inherit: true
 
+	mixins: [
+		require '../mixins/visible-on-page.coffee'
+	]
+	
 	computed:
 		src: () ->
 			'img/car.png'

@@ -1,6 +1,7 @@
-.marquee-transition
+.fadeup-transition
 	opacity 1
-	transition transform 600ms 100ms ease-in-out
+	transition transform 1200ms 100ms cubic-bezier(.14,.86,.43,.9), opacity 1000ms 200ms ease-in-out
 
-.marquee-enter, .marquee-leave
+.fadeup-enter, .fadeup-leave
 	opacity 0
+	transform translateY(80px)

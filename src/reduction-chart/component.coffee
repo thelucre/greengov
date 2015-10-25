@@ -18,6 +18,7 @@ Marquee =
 	data: () ->
 		return {
 			chartdata: []
+			initted: false
 		}
 
 	attached: () ->
@@ -26,8 +27,9 @@ Marquee =
 
 	methods:
 		init: () ->
-			if @chartdata.length <= 0
+			if !@initted
 				@buildChart()
+				@initted = true
 			return
 
 		buildChart: () ->

@@ -11,6 +11,7 @@
 		"velocity": "*",
 		"vue": "~0",
 		"vue-router": "~0",
-		"vue-resource": "~0"
+		"vue-resource": "~0",
+		"Chart.js": "1.0.2"
 	}
 }

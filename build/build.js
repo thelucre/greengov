@@ -34118,17 +34118,9 @@
 	/*
 	The marquee
 	 */
-	var Chart, Marquee, chartColors;
+	var Marquee;
 	
 	__webpack_require__(14);
-	
-	Chart = __webpack_require__(15);
-	
-	chartColors = __webpack_require__(24);
-	
-	Chart.defaults.global.responsive = true;
-	
-	Chart.defaults.global.animationEasing = "easeInOutSine";
 	
 	Marquee = {
 	  template: __webpack_require__(17),
@@ -34307,16 +34299,7 @@
 	module.exports = "<div class='marquee'>\n  <img v-if='state.length' v-attr='src: src'>\n</div>";
 
 /***/ },
-/* 24 */
-/***/ function(module, exports) {
-
-	module.exports = {
-	  colors: ['#8781bd', '#c6f659', '#c64c56', '#3cb878', '#fff200', '#ee145b', '#64d2e9', '#fc6900', '#ff00ff', '#46cdc4'],
-	  highlights: ['#8781bd', '#c6f659', '#c64c56', '#3cb878', '#fff200', '#ee145b', '#64d2e9', '#fc6900', '#ff00ff', '#46cdc4']
-	};
-
-
-/***/ },
+/* 24 */,
 /* 25 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -34369,7 +34352,8 @@
 	      var ctx;
 	      ctx = this.$$.pie.getContext('2d');
 	      this.pieChart = new Chart(ctx).Pie(this.pieData, {
-	        animationEasing: "easeInOutQuart"
+	        animationEasing: "easeInOutQuart",
+	        maintainAspectRatio: true
 	      });
 	    }
 	  },
@@ -34413,7 +34397,7 @@
 /* 28 */
 /***/ function(module, exports) {
 
-	module.exports = "<div class='energy-types'>\n  <h4>Type of Energy Consumed</h4>\n  <canvas class='piechart' v-el='pie'></canvas>\n</div>";
+	module.exports = "<div class='energy-types'>\n  <h4>Type of Energy Consumed</h4>\n  <canvas class='piechart' v-el='pie'></canvas>\n  <div class='legend' v-el='legend'></div>\n</div>";
 
 /***/ },
 /* 29 */

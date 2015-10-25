@@ -13,14 +13,16 @@ Marquee =
 	props: ['org']
 
 	attached: () ->
-		console.log @.org
 		return
 
 	computed:
-		passing: () ->
-			if @org.reduction >= 0.1
+		isPassing: () ->
+			return (@org.reduction >= 0.1)
+
+		grade: () ->
+			if @isPassing
 				return 'Pass'
 			else
-				return 'Fail'
+				return'Fail'
 
 module.exports = Marquee

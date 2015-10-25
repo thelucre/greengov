@@ -1,20 +1,21 @@
 .block.blue.intro
-	.cols-2
-		.left
-			%h1.header
-				%span The goal
-			%p Governor Brown <a href="https://www.gov.ca.gov/news.php?id=17508" target="_blank">has required</a> that all agencies reduce greenhouse gas emissions by at least 10% of their 2010 levels by 2015.  And by 2020, these reductions should be at 20%.
-			%p The state is currently meeting and exceeding these targets as a whole.
-		.right
-			.chart
-				%h2 CO<sup>2</sup> emissions by year
-				%div
-					%canvas(v-el='chart')
-				.legend
+	.content
+		.cols-2
+			.left
+				%h1.header
+					%span The goal
+				%p In 2012, Governor Brown <a href="https://www.gov.ca.gov/news.php?id=17508" target="_blank">issued an executive order</a> requiring all state agencies to <strong>reduce greenhouse gas emissions</strong> by at least <strong>10%</strong> of their 2010 levels <strong>by 2015</strong>.  And by 2020, these reductions should be at 20%.
+				%p The state is currently meeting and <strong>exceeding</strong> these targets as a whole.
+			.right
+				.chart
+					%h2 CO<sup>2</sup> emissions by year
 					%div
-						%span.box.gray
-						Goal of 10% reduction by 2015
-					%div
-						%span.box.green
-						Actual reductions in emissions
-					%div.about-units CO<sup>2</sup> emission units are 1000 metric tons of carbon dioxide equivalent. Carbon Dioxide equivalent is determined by adding up emissions of CO2, CH4, and N2O for each source, multiplying each source by its global warming potential (GWP) and summing these emissions into a single number.
+						%canvas(v-el='chart')
+						.legend
+							%div
+								%span.box.gray
+								Goal of 10% reduction by 2015
+							%div
+								%span.box.green
+								Actual reductions in emissions
+							%div.about-units CO<sup>2</sup> emission units are 1000 metric tons of carbon dioxide equivalent. Carbon Dioxide equivalent is determined by adding up emissions of CO2, CH4, and N2O for each source, multiplying each source by its global warming potential (GWP) and summing these emissions into a single number.

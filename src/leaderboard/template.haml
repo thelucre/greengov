@@ -1,11 +1,12 @@
 .leaderboard.block.blue
-	%h1.header
-		%span How everyone stacks up
-	%ul.organizations
-		%li.list-header
-			%span.rank Rank
-			%span.name Agency Name
-			%span.pass-fail Pass/Fail
-			%span.reduction Reduction
-		%li(v-repeat='org in organizationsWithStats')
-			%org-detail(org="{{ org }}")
+	.content
+		%h1.header
+			%span How everyone stacks up
+		%ul.organizations
+			%li.list-header
+				%span.rank Rank
+				%span.name Agency Name
+				%span.pass-fail Pass/Fail
+				%span.reduction Reduction
+			%li(v-repeat='org in organizationsWithStats')
+				%org-detail(org="{{ org }}")

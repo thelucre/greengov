@@ -1,2 +1,2 @@
 .marquee
-	%img(v-if='state.length' v-attr='src: src')
+	%img(v-if='state.length' v-transition="marquee" v-attr='src: src')

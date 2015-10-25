@@ -1,28 +1,29 @@
 .block
-	.leaders
-		%h1.header
-			%span Of all agencies in California&hellip;
+	.content
+		.leaders
+			%h1.header
+				%span Of all California agencies&hellip;
 
-		.cols-2
+			.cols-2
 
-			.best
-				%h2
-					%span The best
-				.leader(v-repeat='org in best')
-					.name
-						%span.rank {{org.rank}}.
-						{{ org.name }}
-					.perc(v-class='negative: org.reduction < 0')
-						.bar(v-style='width: Math.min(1, Math.abs(org.reduction)) | percent') {{ org.reduction | percent 1 }}
+				.best
+					%h2
+						%span The best
+					.leader(v-repeat='org in best')
+						.name
+							%span.rank {{org.rank}}.
+							{{ org.name }}
+						.perc(v-class='negative: org.reduction < 0')
+							.bar(v-style='width: Math.min(1, Math.abs(org.reduction)) | percent') {{ org.reduction | percent 1 }}
 
-			.worst
-				%h2
-					%span The worst
-				.leader(v-repeat='org in worst')
-					.name
-						%span.rank {{org.rank}}.
-						{{ org.name }}
-					.perc(v-class='negative: org.reduction < 0')
-						.bar(v-style='width: Math.min(1, Math.abs(org.reduction)) | percent') {{ org.reduction | percent 1 }}
+				.worst
+					%h2
+						%span The worst
+					.leader(v-repeat='org in worst')
+						.name
+							%span.rank {{org.rank}}.
+							{{ org.name }}
+						.perc(v-class='negative: org.reduction < 0')
+							.bar(v-style='width: Math.min(1, Math.abs(org.reduction)) | percent') {{ org.reduction | percent 1 }}
 
-		%p.about Bigger numbers are better; they represent the percentage of CO<sup>2</sup> emissions the agency has reduced (or increased, in the case of negatives) since 2010.
+			%p.about Bigger numbers are better; they represent the percentage of CO<sup>2</sup> emissions the agency has reduced (or increased, in the case of negatives) since 2010.

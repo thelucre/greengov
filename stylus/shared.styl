@@ -3,7 +3,7 @@
 	text-align center
 	padding 40px 0 80px
 	margin auto
-	span
+	> span
 		background white
 		color gray
 		padding 30px
@@ -15,11 +15,14 @@
 
 // Global block container
 .block
-	max-width max-width
 	padding: 80px
 	margin 0 auto
 	&.blue
 		background: blue
+
+	.content
+		max-width max-width
+		margin 0 auto
 
 // A 2-col layout with padding
 .cols-2

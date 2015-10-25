@@ -7,9 +7,6 @@ require './style.styl'
 Chart = require 'chart'
 chartColors = require './chart-colors.coffee'
 
-Chart.defaults.global.responsive = true
-Chart.defaults.global.animationEasing = "easeInOutQuart"
-
 # Component definition
 Marquee =
 	template: require './template.haml'

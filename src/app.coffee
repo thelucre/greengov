@@ -6,6 +6,12 @@ Vue.use require 'vue-resource'
 Vue.config.debug = true
 require './assets.coffee'
 
+# Global chart config
+Chart = require 'chart'
+Chart.defaults.global.tooltipFillColor = 'rgba(85,98,112,0.9)';
+Chart.defaults.global.responsive = true
+Chart.defaults.global.animationEasing = "easeInOutQuart"
+
 app = new Vue
 	el: '#app'
 

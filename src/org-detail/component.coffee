@@ -4,6 +4,7 @@ The marquee
 
 # Deps
 require './style.styl'
+Chart = require 'chart'
 
 # Component definition
 Marquee =
@@ -18,29 +19,48 @@ Marquee =
 			orgdata: []
 		}
 
+	attached: () ->
+		return
+
 	methods:
 		toggle: () ->
 			@open = !@open
 			if @orgdata.length == 0
-				@getData()
+				@getEneryData()
 			return
 
-		getData: () ->
+		getEneryData: () ->
 
 			params =
-				$select: 'organizationname,emissionyear,SUM(co2e)'
-				$group: 'organizationname,emissionyear'
-				
-				# replace qutoes with two single quotes for a proper SQL query syntax
-				$where: ('organizationname=\''+@org.name.replace('\'','\'\'')+'\'')
+				$select: 'organizationname,sourcename,SUM(co2e)'
+				$group: 'organizationname,sourcename'
+				$where: 'organizationname=\''+(@org.name.replace('\'','\'\'')+'\'')
 
 			@$http.get @endpoint + $.param(params), (data, status, request) =>
 				@$set('orgdata', data)
+				console.log @orgdata
+				@buildCharts()
+			return
+
+		buildCharts: () ->
+			ctx = @$$.pie.getContext '2d'
+			@pieChart = new Chart(ctx).Pie(@pieData)
+			console.log @pieData
 			return
 
 	computed:
 		isPassing: () ->
 			return (@org.reduction >= 0.1)
+
+		pieData: () ->
+			temp = _.map @orgdata, (type, i) ->
+				return {
+					color: '#000'
+					value: type.sum_co2e
+					hightlight: '#444'
+					label: type.sourcename
+				}
+			return temp
 
 		grade: () ->
 			if @isPassing

@@ -8,47 +8,48 @@ Chart = require 'chart'
 chartColors = require './chart-colors.coffee'
 
 Chart.defaults.global.responsive = true
-Chart.defaults.global.animationEasing = "easeInOutSine"
+Chart.defaults.global.animationEasing = "easeInOutQuart"
 
 # Component definition
 Marquee =
 	template: require './template.haml'
 	inherit: true
 
-	props: ['org']
-
-	components:
-		'energy-chart': require '../energy-chart/component.coffee'
-
 	data: () ->
 		return {
-			open: false
-			piedata: []
+			chartdata: []
 		}
 
 	attached: () ->
+
 		return
 
 	methods:
-		toggle: () ->
-			@open = !@open
-			@$.piechart.init();
+		init: () ->
+			if @chartdata.length <= 0
+				@getChartData()
 			return
 
+		getChartData: () ->
+			params =
+				$select: 'organizationname,sourcename,SUM(co2e)'
+				$group: 'organizationname,sourcename'
+				$where: 'organizationname=\''+(@org.name.replace('\'','\'\'')+'\'')
+
+			@$http.get @endpoint + $.param(params), (data, status, request) =>
+				@$set('chartdata', data)
+				@buildCharts()
+			return
 
 		buildCharts: () ->
 			ctx = @$$.pie.getContext '2d'
-			@pieChart = new Chart(ctx).Pie(@pieData)
-			console.log @pieData
+			@pieChart = new Chart(ctx).Pie(@pieData, {animationEasing: "easeInOutQuart"})
 			return
 
 	computed:
-		isPassing: () ->
-			return (@org.reduction >= 0.1)
 
 		pieData: () ->
-			temp = _.map @piedata, (type, i) ->
-				console.log i
+			temp = _.map @chartdata, (type, i) ->
 				return {
 					color: chartColors.colors[i % chartColors.colors.length]
 					value: parseInt(type.sum_co2e).toFixed(0)
@@ -56,11 +57,5 @@ Marquee =
 					label: type.sourcename
 				}
 			return temp
-
-		grade: () ->
-			if @isPassing
-				return 'Pass'
-			else
-				return'Fail'
 
 module.exports = Marquee

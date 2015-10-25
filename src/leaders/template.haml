@@ -1,9 +1,9 @@
-.leaders(class='type-{{type}}')
+.leaders
 	%h1 Of all the agencies in California
 
 	.cols
 
-		.the-best
+		.best
 			%h2 The best
 			.leader(v-repeat='org in best')
 				.name
@@ -12,7 +12,7 @@
 				.perc
 					.bar(v-style='width: org.reduction | percent') {{ org.reduction | percent 1 }}
 
-		.the-worst
+		.worst
 			%h2 The worst
 			.leader(v-repeat='org in worst')
 				.name

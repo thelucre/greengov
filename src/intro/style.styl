@@ -1,3 +1,6 @@
+@import '~variables.styl'
+@import '~mixins.styl'
+
 .intro
 
 	h1
@@ -5,6 +8,13 @@
 
 	p
 		font-size 20px
+		a
+			border-bottom 1px dashed white
+			transition color 200ms, border-color 200ms
+			&:hover, &:active
+				color gray
+				border-bottom-color gray
+
 
 	.chart
 		background gray

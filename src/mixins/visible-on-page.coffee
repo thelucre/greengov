@@ -23,6 +23,7 @@ module.exports = {
 			return
 
 		checkVisiblity: () ->
+			docViewTop = @$win.scrollTop()
 			docViewBottom = docViewTop + @$win.height()
 			elemTop = $(@$el).offset().top
 			return (elemTop + @offset <= docViewBottom)

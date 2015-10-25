@@ -18,6 +18,7 @@ Marquee =
 	data: () ->
 		return {
 			chartdata: []
+			initted: false
 		}
 
 	attached: () ->
@@ -26,13 +27,15 @@ Marquee =
 
 	methods:
 		init: () ->
-			if @chartdata.length <= 0
+			if !@initted
 				@buildChart()
+				@initted = true
 			return
 
 		buildChart: () ->
 			ctx = @$$.bar.getContext '2d'
-			@pieChart = new Chart(ctx).Bar(@barData, { animationEasing: "easeInOutQuart", maintainAspectRatio: true })
+			@chart = new Chart(ctx).Bar(@barData, { animationEasing: "easeInOutQuart", maintainAspectRatio: true })
+			@$$.legend.innerHTML = @chart.generateLegend()
 			return
 
 	computed:
@@ -46,17 +49,20 @@ Marquee =
 						label: 'Target'
 						data: _.map _.range(11), (i) ->
 							return (1 - i * 0.02)
-						fillColor: '#aaa'
-						strokeColor: '#aaa'
+						fillColor: '#556270'
+						strokeColor: '#556270'
+						highlightFill: '#5f6f81'
+						highlightStroke: '#5f6f81'
 					},{
 						label: 'Actual'
 						data: _.map @org.years, (year) =>
 							return (year.sum_co2e / @org.years[0].sum_co2e)
-						fillColor: '#556270'
-						strokeColor: '#556270'
+						fillColor: '#c7f464'
+						strokeColor: '#c7f464'
+						highlightFill: '#d1f67e'
+						highlightStroke: '#d1f67e'
 					}
 				]
-			console.log chartvalues
 			return chartvalues
 
 module.exports = Marquee

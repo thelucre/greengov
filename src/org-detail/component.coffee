@@ -4,6 +4,7 @@ The marquee
 
 # Deps
 require './style.styl'
+require 'velocity'
 
 # Component definition
 Marquee =
@@ -28,8 +29,12 @@ Marquee =
 	methods:
 		toggle: () ->
 			@open = !@open
-			@$.piechart.init();
-			@$.reductionchart.init();
+			if !@open
+				$(@$$.content).velocity 'slideUp'
+			else
+				$(@$$.content).velocity 'slideDown', complete: () =>
+					@$.piechart.init();
+					@$.reductionchart.init();
 			return
 
 

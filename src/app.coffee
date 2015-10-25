@@ -25,6 +25,7 @@ app = new Vue
 		marquee: require './marquee/component.coffee'
 		leaders: require './leaders/component.coffee'
 		leaderboard: require './leaderboard/component.coffee'
+		compare: require './compare/component.coffee'
 
 	ready: () ->
 		@getAggregateOrgData()

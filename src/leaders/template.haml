@@ -5,12 +5,18 @@
 
 		.the-best
 			%h2 The best
-			%li(v-repeat='org in best')
-				%span.name {{ org.name }}
-				%span.bar(v-style='width: org.reduction | percent') {{ org.reduction | percent 1 }}
+			.leader(v-repeat='org in best')
+				.name
+					%span.rank {{org.rank}}
+					{{ org.name }}
+				.perc
+					.bar(v-style='width: org.reduction | percent') {{ org.reduction | percent 1 }}
 
 		.the-worst
 			%h2 The worst
-			%li(v-repeat='org in worst')
-				%span.name {{ org.name }}
-				%span.bar(v-style='width: org.reduction | percent') {{ org.reduction | percent 1 }}
+			.leader(v-repeat='org in worst')
+				.name
+					%span.rank {{org.rank}}
+					{{ org.name }}
+				.perc
+					.bar(v-style='width: org.reduction | percent') {{ org.reduction | percent 1 }}

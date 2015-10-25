@@ -37,6 +37,7 @@ app = new Vue
 				return orgdata[0].emissionyear == '2010'
 
 		organizationsWithStats: () ->
+
 			# massage the grouped sata to determine the current reduction
 			stats = _.map @groupedOrganizations, (org) ->
 				return {
@@ -47,7 +48,15 @@ app = new Vue
 					years: org
 				}
 
-			return _.sortBy(stats, 'reduction').reverse()
+			# sort by % reduction
+			stats = _.sortBy(stats, 'reduction').reverse()
+
+			# make their rank into the data
+			stats = _.map stats, (org, i) ->
+				org.rank = i + 1
+				return org
+
+			return stats
 
 	methods:
 		getAggregateData: () ->

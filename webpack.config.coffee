@@ -2,6 +2,7 @@ bower_dir = __dirname + '/bower_components'
 
 webpack = require 'webpack'
 ExtractTextPlugin = require 'extract-text-webpack-plugin'
+autoprefixer = require 'autoprefixer-stylus'
 
 module.exports =
 
@@ -66,3 +67,5 @@ module.exports =
 			"root.jQuery": "jquery",
 		new ExtractTextPlugin 'style.css', { allChunks: true }
 	]
+
+	stylus: use: [autoprefixer()]

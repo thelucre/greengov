@@ -1,12 +1,13 @@
 @import '~variables.styl'
 @import '~mixins.styl'
 
-.energy-types
+.reduction-chart
 	width 50%
 	height 400px
 	text-align center
 	float: right;
-	
+	padding 0 20px
+
 	h4
 		background gray
 		padding 0px 20px
@@ -18,3 +19,25 @@
 	canvas
 		width 100% !important
 		height auto !important
+
+	legend
+		width 100%
+		
+		ul
+			line-height 14px
+			text-align center
+			width 100%
+			padding-left 0
+
+			li
+				font-size 12px
+				color gray
+				display inline-block
+				padding-right 20px !important
+				border none !important
+
+				span
+					width 15px
+					height 15px
+					vertical-align bottom
+					margin-right 6px

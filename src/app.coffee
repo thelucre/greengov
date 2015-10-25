@@ -13,16 +13,17 @@ app = new Vue
     endpoint: 'https://greengov.data.ca.gov/resource/umpc-nnuk.json?'
     params:
       '$limit': 50000
-    dataset: []
+    organizations: []
+    state: []
 
   components:
-    'test': require './test/component.coffee'
     leaderboard: require './leaderboard/component.coffee'
     leaders: require './leaders/component.coffee'
     marquee: require './marquee/component.coffee'
 
   ready: () ->
-    @getAggregateData();
+    @getAggregateOrgData()
+    @getAggregateStateData()
     return
 
   # child component will inherit these methods
@@ -30,11 +31,11 @@ app = new Vue
 
     groupedOrganizations: () ->
       # group by organization name
-      grouped = _.groupBy @dataset, 'organizationname'
+      grouped = _.groupBy @organizations, 'organizationname'
 
       # remove any data that does not contain values for 2010
-      filtered = _.filter grouped, (orgdata) ->
-        return orgdata[0].emissionyear == '2010'
+      filtered = _.filter grouped, (organizations) ->
+        return organizations[0].emissionyear == '2010'
 
       return filtered
 
@@ -53,12 +54,21 @@ app = new Vue
       return stats
 
   methods:
-    getAggregateData: () ->
+    getAggregateOrgData: () ->
       params =
         $limit: 50000
         $select: 'organizationname,emissionyear,SUM(co2e)'
         $group: 'organizationname,emissionyear'
 
       @$http.get @endpoint + $.param(params), (data, status, request) =>
-        @$set('dataset', data)
+        @$set('organizations', data)
+      return
+
+    getAggregateStateData: () ->
+      params =
+        $select: 'emissionyear,SUM(co2e)'
+        $group: 'emissionyear'
+
+      @$http.get @endpoint + $.param(params), (data, status, request) =>
+        @$set('state', data)
       return

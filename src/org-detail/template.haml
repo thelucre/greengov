@@ -1,10 +1,10 @@
-.org-detail(v-class=" open: open")
+.org-detail
 	.item-header(v-on="click: toggle()")
 		%span.rank {{ ("0" + org.rank).slice(-2) }}
 		%span.name
 			.vert-center {{ org.name }}
 		%span.pass-fail(v-class=" pass: isPassing") {{ grade }}
 		%span.reduction(v-class=" pass: isPassing") {{ (org.reduction*100).toFixed(1)+ '%' }}
-	.item-content
+	.item-content(v-el="content")
 		%energy-chart(v-ref="piechart")
 		%reduction-chart(v-ref="reductionchart")

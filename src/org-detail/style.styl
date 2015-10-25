@@ -8,6 +8,7 @@
 	line-height 50px
 	padding 0 20px
 	cursor pointer
+	padding-bottom 1px
 	transition background-color 350ms 0ms ease-in-out
 
 	&:hover
@@ -53,14 +54,6 @@
 
 	.item-content
 		background white
-		height 0
-		overflow hidden
-		padding 0 20px
+		display none
 		clearfix()
-
-	&.open
-		padding-bottom 20px
-
-		.item-content
-			height auto
-			padding:20px
+		margin-bottom 20px

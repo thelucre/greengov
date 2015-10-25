@@ -4,6 +4,7 @@ The marquee
 
 # Deps
 require './style.styl'
+require '../transitions/definitions.coffee'
 
 # Component definition
 Marquee =

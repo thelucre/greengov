@@ -1,0 +1,9 @@
+.org-detail
+	.item-header
+		%span.rank {{ ("0" + org.rank).slice(-2) }}
+		%span.name
+			.vert-center {{ org.name }}
+		%span.pass-fail {{ passing }}
+		%span.reduction {{ Math.round(org.reduction*1000)/1000 | percent }}
+	.item-content(style="display:none")
+		%h1 charts n shit

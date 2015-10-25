@@ -1,0 +1,46 @@
+@import '~variables.styl'
+@import '~mixins.styl'
+
+.org-detail
+	height 50px
+	background gray
+	color white
+	line-height 50px
+	padding 0 20px
+
+	span
+		display inline-block
+		vertical-align middle
+
+		&.rank
+			font-size 26px
+			font-weight 600
+			letter-spacing -2px
+
+		&.name
+			font-size 13px
+			position relative
+			height 50px
+			line-height:15px;
+			font-weight 600
+
+			.vert-center
+				transform translateY(-50%)
+				position absolute
+				top 50%
+				left 0
+
+		&.pass-fail
+			font-size 26px
+			text-transform uppercase
+			font-weight 600
+			letter-spacing -2px
+
+			&.fail
+				color red
+
+			&.pass
+				color green
+
+		&.reduction
+			width 15%

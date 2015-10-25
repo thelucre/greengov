@@ -10,8 +10,9 @@ module.exports =
 	template: require './template.haml'
 	inherit: true
 
-	data: () ->
-		return null
+	mixins: [
+		require '../mixins/visible-on-page.coffee'
+	]
 
 	components:
 		'org-detail': require '../org-detail/component.coffee'

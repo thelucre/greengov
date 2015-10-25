@@ -5,6 +5,7 @@ module.exports = {
 	data: () ->
 		return {
 			isVisible: false
+			offset: 300
 		}
 
 	attached: () ->
@@ -29,7 +30,5 @@ module.exports = {
 
 			elemTop = $(@$el).offset().top
 			elemBottom = elemTop + $(@$el).height()
-			console.log @
-			console.log elemTop, docViewTop, docViewBottom, elemBottom
-			return ((elemBottom <= docViewBottom) && (elemTop >= docViewTop))
+			return (elemTop + @offset <= docViewBottom)
 }
